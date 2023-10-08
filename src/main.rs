@@ -1,3 +1,11 @@
+mod cli;
+
+use cli::derive;
+use clap::Parser;
+// use cli::builder;
+
 fn main() {
-    println!("Hello, world!");
+    let cli = derive::Cli::parse();
+    // let cli2 = builder::cli().get_matches();
+
 }
