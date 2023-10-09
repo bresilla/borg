@@ -639,7 +639,7 @@ pub fn cli(subs: bool, logo: bool) -> Command {
         )
         .subcommand(
             Command::new("launch")
-                .about(aly("l", subs) + "Launch a launch file\n")
+                .about(aly("l", subs) + "Launch a launch file")
                 .aliases(&["l"])
                 .subcommand_required(true)
                 .arg_required_else_help(true)
@@ -665,8 +665,8 @@ pub fn cli(subs: bool, logo: bool) -> Command {
         )
 
         .subcommand(
-            Command::new("workspace")
-                .about(aly("w", subs) + "Various workspace subcommands")
+            Command::new("work")
+                .about(aly("w", subs) + "Various workspace subcommands\n")
                 .aliases(&["w", "pkg", "pack"])
                 .subcommand_required(true)
                 .arg_required_else_help(true)
@@ -721,6 +721,13 @@ pub fn cli(subs: bool, logo: bool) -> Command {
             Command::new("bag")
                 .about(aly("b", subs) + "Various rosbag subcommands")
                 .aliases(&["b"])
+                .subcommand_required(true)
+                .arg_required_else_help(true)
+        )
+        .subcommand(
+            Command::new("daemon")
+                .about(aly("d", subs) + "Deamon and bridge subcommands [WIP]")
+                .aliases(&["d"])
                 .subcommand_required(true)
                 .arg_required_else_help(true)
         )
