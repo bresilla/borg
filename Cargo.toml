@@ -11,3 +11,4 @@ edition = "2021"
 anyhow = "1.0.75"
 clap = { version = "4.3.23", features = ["derive"] }
 getset = "0.1.2"
+colored = "2.0.4"

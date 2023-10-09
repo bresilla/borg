@@ -1,9 +1,7 @@
 use clap::{Parser, Subcommand};
-use std::path::PathBuf;
 
 extern crate getset;
 use getset::{CopyGetters, Getters, MutGetters, Setters};
-
 #[derive(Parser, CopyGetters, Getters, MutGetters, Setters)]
 #[getset(get = "pub", set = "pub", get_mut = "pub")]
 #[command(author, version, about, long_about = None)]
@@ -11,6 +9,24 @@ use getset::{CopyGetters, Getters, MutGetters, Setters};
 #[command(author = "bresilla <trim.bresilla@gmail.com>")]
 #[command(version = "1.0")]
 #[command(about = "a wannabe ros2 command line tool replacer")]
+#[command(before_help = "
+  ▄▄▄         ▄▄▄         ▄▄▄               ▄▄▟███████▙▄▄      
+▟█████▙     ▟█████▙     ▟█████▙           ▟███████████████▙   
+▜█████▛     ▜█████▛     ▜█████▛         ▟████▛         ▜████▙ 
+  ▀▀▀         ▀▀▀         ▀▀▀           ████             ▜███▙
+                                                         ▟████
+                                                        ▟███▛
+  ▄▄▄         ▄▄▄         ▄▄▄                         ▟████▛ 
+▟█████▙     ▟█████▙     ▟█████▙                     ▟████▛   
+▜█████▛     ▜█████▛     ▜█████▛                   ▟████▛    
+  ▀▀▀         ▀▀▀         ▀▀▀                   ▟████▛      
+                                              ▟████▛       
+                                            ▟████▛      
+  ▄▄▄         ▄▄▄         ▄▄▄             ▟████▛            
+▟█████▙     ▟█████▙     ▟█████▙          ▟████▛
+▜█████▛     ▜█████▛     ▜█████▛         ▟█████████████████████
+  ▀▀▀         ▀▀▀         ▀▀▀           ██████████████████████
+" )]
 #[command(long_about = "A ROS2 command line tool replacer that aims to be more user friendly and more powerful. It is written in Rust and is still in development.")]
 // #[clap(disable_help_flag = true)]
 // #[clap(disable_version_flag =true)]
@@ -19,6 +35,8 @@ use getset::{CopyGetters, Getters, MutGetters, Setters};
 #[clap(disable_colored_help = false)]
 #[clap(color = clap::ColorChoice::Always)]
 #[clap(arg_required_else_help = true)]
+#[clap(subcommand_required = true)]
+#[clap(allow_external_subcommands = true)]
 pub struct Cli {
     /// Set the config file path
     // #[arg(long, value_name = "FILE")]
@@ -34,43 +52,45 @@ pub struct Cli {
 
 
 #[derive(Subcommand)]
+#[command(arg_required_else_help = true)]
 pub enum Commands {
     #[command(name = "action")]
     #[command(about = "various action commands")]
-    //make a better about
+    #[command(aliases = &["a"])]
+    #[command(arg_required_else_help = true)]
     Action {
-        #[arg(short, long)]
-        list: bool,
+        #[command(subcommand)]
+        subcommand: Option<ActionSubcommand>,
     },
     #[command(name = "topic")]
     #[command(about = "various topic commands")]
     Topic {
-        #[arg(short, long)]
-        list: bool,
+        #[command(subcommand)]
+        subcommand: Option<TopicSubcommand>,
     },
     #[command(name = "service")]
     #[command(about = "various service commands")]
     Service {
-        #[arg(short, long)]
-        list: bool,
+        #[command(subcommand)]
+        subcommand: Option<ServiceSubcommand>,
     },
     #[command(name = "param")]
     #[command(about = "various param commands")]
     Param {
-        #[arg(short, long)]
-        list: bool,
+        #[command(subcommand)]
+        subcommand: Option<ParamSubcommand>,
     },
     #[command(name = "node")]
     #[command(about = "various node commands")]
     Node {
-        #[arg(short, long)]
-        list: bool,
+        #[command(subcommand)]
+        subcommand: Option<NodeSubcommand>,
     },
     #[command(name = "interface")]
     #[command(about = "various interface commands\n")]
     Interface {
-        #[arg(short, long)]
-        list: bool,
+        #[command(subcommand)]
+        subcommand: Option<InterfaceSubcommand>,
     },
 
 
@@ -83,8 +103,8 @@ pub enum Commands {
     #[command(name = "launch")]
     #[command(about = "Various launch commands\n")]
     Launch {
-        #[arg(short, long)]
-        list: bool,
+        #[command(subcommand)]
+        subcommand: Option<LaunchSubcommand>,
     },
 
 
@@ -97,7 +117,7 @@ pub enum Commands {
     },
 
 
-    #[command(name = "pkg")]
+    #[command(name = "pack")]
     #[command(about = "Various package commands")]
     Pkg {
         #[command(subcommand)]
@@ -127,6 +147,76 @@ pub enum PkgSubcommand {
 
 #[derive(Subcommand)]
 pub enum RunSubcommand {
+    #[command(name = "create")]
+    #[command(about = "various param commands")]
+    Param {
+        #[arg(short, long)]
+        list: bool,
+    },
+}
+
+#[derive(Subcommand)]
+pub enum LaunchSubcommand {
+    #[command(name = "param")]
+    #[command(about = "various param commands")]
+    Param {
+        #[arg(short, long)]
+        list: bool,
+    },
+}
+
+#[derive(Subcommand)]
+pub enum ActionSubcommand {
+    #[command(name = "param")]
+    #[command(about = "various param commands")]
+    Param {
+        #[arg(short, long)]
+        list: bool,
+    },
+}
+
+#[derive(Subcommand)]
+pub enum TopicSubcommand {
+    #[command(name = "param")]
+    #[command(about = "various param commands")]
+    Param {
+        #[arg(short, long)]
+        list: bool,
+    },
+}
+
+#[derive(Subcommand)]
+pub enum ServiceSubcommand {
+    #[command(name = "param")]
+    #[command(about = "various param commands")]
+    Param {
+        #[arg(short, long)]
+        list: bool,
+    },
+}
+
+#[derive(Subcommand)]
+pub enum ParamSubcommand {
+    #[command(name = "param")]
+    #[command(about = "various param commands")]
+    Param {
+        #[arg(short, long)]
+        list: bool,
+    },
+}
+
+#[derive(Subcommand)]
+pub enum NodeSubcommand {
+    #[command(name = "param")]
+    #[command(about = "various param commands")]
+    Param {
+        #[arg(short, long)]
+        list: bool,
+    },
+}
+
+#[derive(Subcommand)]
+pub enum InterfaceSubcommand {
     #[command(name = "param")]
     #[command(about = "various param commands")]
     Param {
