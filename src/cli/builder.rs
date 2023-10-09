@@ -592,8 +592,6 @@ pub fn cli(subs: bool, logo: bool) -> Command {
                 .arg(arg!(-a --show_all "Show all launched subprocesses' output"))
                 .arg(arg!(--launch_prefix <LAUNCH_PREFIX> "Prefix command before executables (e.g. --launch-prefix 'xterm -e gdb -ex run --args')."))
                 .arg(arg!(--launch_prefix_filter <LAUNCH_PREFIX_FILTER> "Regex pattern for executable filtering with --launch-prefix."))
-                
-
         )
 
         .subcommand(
