@@ -27,12 +27,13 @@ Commands:
   param      [ p ]  Various param subcommands
   node       [ n ]  Various node subcommands
   interface  [ i ]  Various interface subcommands
+  frame      [ f ]  Various transforms subcommands [WIP]
                  
   run        [ r ]  Run an executable
   launch     [ l ]  Launch a launch file
                  
-  pkg        Various package subcommands
-  bag        Various rosbag subcommands
+  workspace  [ w ]  Various workspace subcommands
+  bag        [ b ]  Various rosbag subcommands
 
 Options:
   -h, --help     Print help (see more with '--help')
