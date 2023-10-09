@@ -10,22 +10,18 @@ use getset::{CopyGetters, Getters, MutGetters, Setters};
 #[command(version = "1.0")]
 #[command(about = "a wannabe ros2 command line tool replacer")]
 #[command(before_help = "
-  ▄▄▄         ▄▄▄         ▄▄▄               ▄▄▟███████▙▄▄      
-▟█████▙     ▟█████▙     ▟█████▙           ▟███████████████▙   
-▜█████▛     ▜█████▛     ▜█████▛         ▟████▛         ▜████▙ 
-  ▀▀▀         ▀▀▀         ▀▀▀           ████             ▜███▙
-                                                         ▟████
-                                                        ▟███▛
-  ▄▄▄         ▄▄▄         ▄▄▄                         ▟████▛ 
-▟█████▙     ▟█████▙     ▟█████▙                     ▟████▛   
-▜█████▛     ▜█████▛     ▜█████▛                   ▟████▛    
-  ▀▀▀         ▀▀▀         ▀▀▀                   ▟████▛      
-                                              ▟████▛       
-                                            ▟████▛      
-  ▄▄▄         ▄▄▄         ▄▄▄             ▟████▛            
-▟█████▙     ▟█████▙     ▟█████▙          ▟████▛
-▜█████▛     ▜█████▛     ▜█████▛         ▟█████████████████████
-  ▀▀▀         ▀▀▀         ▀▀▀           ██████████████████████
+  ▄▄▄         ▄▄▄         ▄▄▄    
+▟█████▙     ▟█████▙     ▟█████▙ 
+▜█████▛     ▜█████▛     ▜█████▛ 
+  ▀▀▀         ▀▀▀         ▀▀▀   
+  ▄▄▄         ▄▄▄         ▄▄▄   
+▟█████▙     ▟█████▙     ▟█████▙ 
+▜█████▛     ▜█████▛     ▜█████▛ 
+  ▀▀▀         ▀▀▀         ▀▀▀   
+  ▄▄▄         ▄▄▄         ▄▄▄   
+▟█████▙     ▟█████▙     ▟█████▙ 
+▜█████▛     ▜█████▛     ▜█████▛ 
+  ▀▀▀         ▀▀▀         ▀▀▀   
 " )]
 #[command(long_about = "A ROS2 command line tool replacer that aims to be more user friendly and more powerful. It is written in Rust and is still in development.")]
 // #[clap(disable_help_flag = true)]

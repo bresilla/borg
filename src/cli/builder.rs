@@ -1,36 +1,44 @@
-use clap::{arg, Command, builder::{styling, Str}};
+use clap::{arg, Command, builder::styling};
 use colored::Colorize;
+// use std::path::PathBuf;
 
-pub fn wrapped(letter: &str) -> String {
-    let mut wrapped = "[".red().to_string();
-    wrapped.push_str(&letter.red().bold().to_string());
-    wrapped.push_str(&"]".red().to_string());
+pub fn aly(letter: &str, show_logo: bool) -> String {
+    let mut wrapped = "[ ".bright_green().to_string();
+    wrapped.push_str(&letter.bright_green().bold().to_string());
+    wrapped.push_str(&" ]".bright_green().to_string());
     wrapped.push_str(&"  ".to_string());
-    wrapped
+    let new_wrapped = if show_logo { wrapped } else { "".to_string() };
+    new_wrapped
 }
 
-pub fn cli() -> Command {
+pub fn cli(subs: bool, logo: bool) -> Command {
+    let logo: String = if logo {"
+        ▄▄▄   ".bright_blue().to_string().to_owned()+"     ▄▄▄   ".bright_blue().to_string().as_str() + "     ▄▄▄     ".bright_green().to_string().as_str() + " 
+      ▟█████▙ ".bright_blue().to_string().as_str() + "   ▟█████▙ ".bright_blue().to_string().as_str() + "   ▟█████▙   ".bright_green().to_string().as_str() + "   
+      ▜█████▛ ".bright_blue().to_string().as_str() + "   ▜█████▛ ".bright_blue().to_string().as_str() + "   ▜█████▛   ".bright_green().to_string().as_str() + "   
+        ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀     ".bright_green().to_string().as_str() + "   
+        ▄▄▄   ".bright_blue().to_string().as_str() + "     ▄▄▄   ".bright_green().to_string().as_str() + "     ▄▄▄     ".bright_blue().to_string().as_str() + "   
+      ▟█████▙ ".bright_blue().to_string().as_str() + "   ▟█████▙ ".bright_green().to_string().as_str() + "   ▟█████▙   ".bright_blue().to_string().as_str() + "   
+      ▜█████▛ ".bright_blue().to_string().as_str() + "   ▜█████▛ ".bright_green().to_string().as_str() + "   ▜█████▛   ".bright_blue().to_string().as_str() + "   
+        ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀   ".bright_green().to_string().as_str() + "     ▀▀▀     ".bright_blue().to_string().as_str() + "   
+        ▄▄▄   ".bright_blue().to_string().as_str() + "     ▄▄▄   ".bright_blue().to_string().as_str() + "     ▄▄▄     ".bright_green().to_string().as_str() + "   
+      ▟█████▙ ".bright_blue().to_string().as_str() + "   ▟█████▙ ".bright_blue().to_string().as_str() + "   ▟█████▙   ".bright_green().to_string().as_str() + "   
+      ▜█████▛ ".bright_blue().to_string().as_str() + "   ▜█████▛ ".bright_blue().to_string().as_str() + "   ▜█████▛   ".bright_green().to_string().as_str() + "   
+        ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀     ".bright_green().to_string().as_str()} else { String::new() };
+
+
     let styles = styling::Styles::styled()
-    .header(styling::AnsiColor::Red.on_default() | styling::Effects::BOLD)
-    .usage(styling::AnsiColor::Red.on_default() | styling::Effects::BOLD)
+    .header(styling::AnsiColor::Blue.on_default() | styling::Effects::BOLD)
+    .usage(styling::AnsiColor::Blue.on_default() | styling::Effects::BOLD)
     .literal(styling::AnsiColor::Green.on_default() | styling::Effects::BOLD)
-    .placeholder(styling::AnsiColor::Cyan.on_default());
+    .error(styling::AnsiColor::Red.on_default() | styling::Effects::BOLD)
+    .placeholder(styling::AnsiColor::Green.on_default());
+
+
     Command::new("borg")
-        .before_help("
-  ▄▄▄   ".red().to_string().to_owned()+"     ▄▄▄   ".red().to_string().as_str() + "     ▄▄▄     ".blue().to_string().as_str() + " 
-▟█████▙ ".red().to_string().as_str() + "   ▟█████▙ ".red().to_string().as_str() + "   ▟█████▙   ".blue().to_string().as_str() + "   
-▜█████▛ ".red().to_string().as_str() + "   ▜█████▛ ".red().to_string().as_str() + "   ▜█████▛   ".blue().to_string().as_str() + "   
-  ▀▀▀   ".red().to_string().as_str() + "     ▀▀▀   ".red().to_string().as_str() + "     ▀▀▀     ".blue().to_string().as_str() + "   
-  ▄▄▄   ".red().to_string().as_str() + "     ▄▄▄   ".blue().to_string().as_str() + "     ▄▄▄     ".red().to_string().as_str() + "   
-▟█████▙ ".red().to_string().as_str() + "   ▟█████▙ ".blue().to_string().as_str() + "   ▟█████▙   ".red().to_string().as_str() + "   
-▜█████▛ ".red().to_string().as_str() + "   ▜█████▛ ".blue().to_string().as_str() + "   ▜█████▛   ".red().to_string().as_str() + "   
-  ▀▀▀   ".red().to_string().as_str() + "     ▀▀▀   ".blue().to_string().as_str() + "     ▀▀▀     ".red().to_string().as_str() + "   
-  ▄▄▄   ".red().to_string().as_str() + "     ▄▄▄   ".red().to_string().as_str() + "     ▄▄▄     ".blue().to_string().as_str() + "   
-▟█████▙ ".red().to_string().as_str() + "   ▟█████▙ ".red().to_string().as_str() + "   ▟█████▙   ".blue().to_string().as_str() + "   
-▜█████▛ ".red().to_string().as_str() + "   ▜█████▛ ".red().to_string().as_str() + "   ▜█████▛   ".blue().to_string().as_str() + "   
-  ▀▀▀   ".red().to_string().as_str() + "     ▀▀▀   ".red().to_string().as_str() + "     ▀▀▀     ".blue().to_string().as_str())
+        .before_help(&logo)
         .styles(styles)
-        .about("a wannabe ros2 command line tool replacer")
+        .about("a wannabe ros2 command line tool alternative") 
         .author("bresilla <trim.bresilla@gmail.com>")
         .version("1.0")
         .long_about("A ROS2 command line tool replacer that aims to be more user friendly and more powerful. [ALPHA STATE]")
@@ -42,85 +50,224 @@ pub fn cli() -> Command {
         //     .default_missing_value("always"))
         .subcommand_required(true)
         .arg_required_else_help(true)
-        .allow_external_subcommands(true)
+        .allow_external_subcommands(false)
         .disable_help_subcommand(true)
         .subcommand(
             Command::new("action")
-                .about(wrapped("a") + "Various action commands")
-                .aliases(&["a"])
+                .about(aly("a", subs) + "Various action subcommands")
+                .aliases(&["a", "act"])
                 .subcommand_required(true)
                 .arg_required_else_help(true)
                 .subcommand(
                     Command::new("info")
                     .about(" Print information about an action")
+                    .aliases(["i", "show"])
                     .arg_required_else_help(true)
+                    .arg(
+                        arg!(<ACTION_NAME> "Name of the ROS action to get info (e.g. '/fibonacci')")
+                        .required(true)
+                    )
+                    .arg( arg!(-t --types "Additionally show the action type") )
+                    .arg( arg!(-c --count "Only display the number of action clients and action servers") )
                 )
                 .subcommand(
                     Command::new("list")
                     .about("List all actions")
+                    .aliases(["l", "ls"])
                     .arg_required_else_help(true)
+                    .arg(arg!(-t --show_types "Additionally show the topic type"))
+                    .arg(arg!(-c --count_topics "Only display the number of topics discovered"))
                 )
                 .subcommand(
-                    Command::new("send_goal")
+                    Command::new("goal")
                     .about("Send a goal to an action server")
+                    .aliases(["g", "send_goal"])
                     .arg_required_else_help(true)
+                    .arg(
+                        arg!(<ACTION_NAME> "Name of the ROS action (e.g. '/fibonacci')")
+                        .required(true)
+                    )
+                    .arg(
+                        arg!(<ACTION_TYPE> "Type of the ROS action (e.g. 'example_interfaces/action/Fibonacci')")
+                        .required(true)
+                    )
+                    .arg(
+                        arg!(<GOAL> "Goal to send to the action server (e.g. '{order: 10}')")
+                        .required(true)
+                    )
+                    .arg( arg!(-f --feedback "Echo feedback messages for the goal") )
                 )
         )
         .subcommand(
             Command::new("topic")
-                .about(wrapped("t") + "Various topic commands")
-                .aliases(&["t"])
+                .about(aly("t", subs) + "Various topic subcommands")
+                .aliases(&["t", "top"])
                 .subcommand_required(true)
                 .arg_required_else_help(true)
                 .subcommand(
                     Command::new("echo")
                     .about("Print messages from topic to screen")
+                    .aliases(["e", "cat"])
                     .arg_required_else_help(true)
+                    .arg(
+                        arg!(<TOPIC_NAME> "Name of the ROS topic to echo (e.g. '/chatter')")
+                        .required(true)
+                    )
+                    .arg(
+                        arg!(<MESSAGE_TYPE> "Type of the ROS message (e.g. 'std_msgs/msg/String')")
+                        .required(true)
+                    )
+                    .arg(arg!(--spin_time <SPIN_TIME> "Time (sec) to spin. Default: until interrupted"))
+                    .arg(arg!(-s --use_sim_time "Use simulation time if available"))
+                    .arg(arg!(--no_daemon "Don't spawn or use running daemon"))
+                    .arg(arg!(--qos_profile <QOS_PROFILE> "QoS preset profile (default: sensor_data)"))
+                    .arg(arg!(--qos_depth <QOS_DEPTH> "Queue size setting (overrides QoS profile)"))
+                    .arg(arg!(--qos_history <QOS_HISTORY> "History of samples setting (default: keep_last)"))
+                    .arg(arg!(--qos_reliability <QOS_RELIABILITY> "Reliability setting (default: Auto match)"))
+                    .arg(arg!(--qos_durability <QOS_DURABILITY> "Durability setting (default: Auto match)"))
+                    .arg(arg!(--csv "Output fields separated by commas (for plotting)"))
+                    .arg(arg!(--field <FIELD> "Echo selected field of a message"))
+                    .arg(arg!(-f --full_length "Output all elements for arrays, bytes, and long strings"))
+                    .arg(arg!(-l --truncate_length <TRUNCATE_LENGTH> "Length to truncate arrays/strings to (default: 128)"))
+                    .arg(arg!(--no_arr "Don't print array fields"))
+                    .arg(arg!(--no_str "Don't print string fields"))
+                    .arg(arg!(--flow_style "Print collections in block style (not in csv)"))
+                    .arg(arg!(--no_lost_messages "Don't report lost messages"))
+                    .arg(arg!(--raw "Echo raw binary representation"))
+                    .arg(arg!(--once "Print first message and exit"))
                 )
                 .subcommand(
                     Command::new("hz")
                     .about("Display publishing rate of topic")
+                    .aliases(["h", "rate"])
                     .arg_required_else_help(true)
+                    .arg(
+                        arg!(<TOPIC_NAME> "Name of the ROS topic to mnitor (e.g. '/chatter')")
+                        .required(true)
+                    )  
+                    .arg(arg!(-w --window <WINDOW> "Window size for rate calculation (default: 10000)"))
+                    .arg(arg!(--filter <EXPR> "Filter messages by Python expression"))
+                    .arg(arg!(--wall_time "Calculate rate using wall time (useful when clock is not published)"))
+                    .arg(arg!(--spin_time <SPIN_TIME> "Spin time in seconds for discovery (if daemon not in use)"))
+                    .arg(arg!(-s --use_sim_time "Enable ROS simulation time"))                    
                 )
                 .subcommand(
                     Command::new("info")
                     .about("Print information about a topic")
+                    .aliases(["i", "show"])
                     .arg_required_else_help(true)
+                    .arg(
+                        arg!(<TOPIC_NAME> "Name of the ROS topic to get info (e.g. '/chatter')")
+                        .required(true)
+                    )
+                    .arg(arg!(--spin_time <SPIN_TIME> "Spin time for discovery (if daemon not in use)"))
+                    .arg(arg!(-s --use_sim_time "Enable ROS simulation time"))
+                    .arg(arg!(--no_daemon "Don't spawn or use a running daemon"))
+                    .arg(arg!(-v --verbose "Print detailed information about nodes, namespaces, topic types..."))                    
                 )
                 .subcommand(
                     Command::new("list")
                     .about("Output a list of available topics")
+                    .aliases(["l", "ls"])
                     .arg_required_else_help(true)
+                    .arg(arg!(--spin_time <SPIN_TIME> "Spin time for discovery (if daemon not in use)"))
+                    .arg(arg!(-s --use_sim_time "Enable ROS simulation time"))
+                    .arg(arg!(--no_daemon "Don't spawn or use a running daemon"))
+                    .arg(arg!(-t --show_types "Additionally show the topic type"))
+                    .arg(arg!(-c --count_topics "Only display the number of topics discovered"))
+                    .arg(arg!(--include_hidden_topics "Consider hidden topics as well"))
                 )
                 .subcommand(
                     Command::new("pub")
                     .about("Publish a message to a topic")
+                    .aliases(["p", "publish"])
                     .arg_required_else_help(true)
+                    .arg(
+                        arg!(<TOPIC_NAME> "Name of the ROS topic to publish to (e.g. '/chatter')")
+                        .required(true)
+                    )
+                    .arg(
+                        arg!(<MESSAGE_TYPE> "Type of the ROS message (e.g. 'std_msgs/msg/String')")
+                        .required(true)
+                    )
+                    .arg(
+                        arg!(<VALUES> "Values to fill the message with in YAML format (e.g. 'data: Hello World')")
+                        .required(true)
+                    )
+                    .arg(arg!(-r --rate <RATE> "Publishing rate in Hz (default: 1)"))
+                    .arg(arg!(-p --print <PRINT> "Print every N-th message (default: 1)"))
+                    .arg(arg!(--once "Publish one message and exit"))
+                    .arg(arg!(-t --times <TIMES> "Publish this many times and exit"))
+                    .arg(arg!(-w --wait_matching_subscriptions <WAIT_MATCHING_SUBS> "Wait for specified matching subscriptions"))
+                    .arg(arg!(--keep_alive <KEEP_ALIVE> "Keep node alive N sec after last message (default: 0.1)"))
+                    .arg(arg!(-n --node_name <NODE_NAME> "Name of publishing node"))
+                    .arg(arg!(--qos_profile <QOS_PROFILE> "QoS preset profile to publish"))
+                    .arg(arg!(--qos_depth <QOS_DEPTH> "Queue size setting (overrides profile)"))
+                    .arg(arg!(--qos_history <QOS_HISTORY> "History of samples setting (overrides profile, default: keep_last)"))
+                    .arg(arg!(--qos_reliability <QOS_RELIABILITY> "QoS reliability setting (overrides profile, default: reliable)"))
+                    .arg(arg!(--qos_durability <QOS_DURABILITY> "QoS durability setting (overrides profile, default: transient_local)"))
+                    .arg(arg!(--spin_time <SPIN_TIME> "Spin time for discovery (if daemon not used)"))
+                    .arg(arg!(-s --use_sim_time "Enable ROS sim time"))
                 )
                 .subcommand(
-                    Command::new("type")
-                    .about("Print a topic's type")
+                    Command::new("kind")
+                    .about("Print a topic's type/kind")
+                    .aliases(["k", "type"])
                     .arg_required_else_help(true)
+                    .arg(
+                        arg!(<TOPIC_NAME> "Name of the ROS topic to get type (e.g. '/chatter')")
+                        .required(true)
+                    )
+                    .arg(arg!(--spin_time <SPIN_TIME> "Spin time for discovery (if daemon not in use)"))
+                    .arg(arg!(-s --use_sim_time "Enable ROS simulation time"))
+                    .arg(arg!(--no_daemon "Don't spawn or use a running daemon"))
                 )
                 .subcommand(
                     Command::new("bw")
                     .about("Display bandwidth used by topic")
+                    .aliases(["b", "bandwidth"])
                     .arg_required_else_help(true)
+                    .arg(
+                        arg!(<TOPIC_NAME> "Name of the ROS topic to get bandwidth (e.g. '/chatter')")
+                        .required(true)
+                    )
+                    .arg(arg!(-w --window <WINDOW> "Window size for rate calculation (default: 10000)"))
+                    .arg(arg!(--spin_time <SPIN_TIME> "Spin time for discovery (if daemon not used)"))
+                    .arg(arg!(-s --use_sim_time "Enable ROS sim time"))
                 )
                 .subcommand(
                     Command::new("find")
                     .about("Output a list of available topics of a given type")
+                    .aliases(["f", "lookup", "search"])
                     .arg_required_else_help(true)
+                    .arg(
+                        arg!(<TOPIC_TYPE> "Name of the ROS topic type to filter for (e.g. 'std_msg/msg/String')")
+                        .required(true)
+                    )
+                    .arg(arg!(--spin_time <SPIN_TIME> "Spin time for discovery (if daemon not in use)"))
+                    .arg(arg!(-s --use_sim_time "Enable ROS simulation time"))
+                    .arg(arg!(--no_daemon "Don't spawn or use a running daemon"))
+                    .arg(arg!(-c --count_topics "Only display the number of topics discovered"))
+                    .arg(arg!(--include_hidden_topics "Consider hidden topics as well"))
                 )
                 .subcommand(
                     Command::new("delay")
                     .about("Display delay of topic from timestamp in header")
+                    .aliases(["d", "latency"])
+                    .arg_required_else_help(true)
+                    .arg(
+                        arg!(<TOPIC_NAME> "Name of the ROS topic to get delay (e.g. '/chatter')")
+                        .required(true)
+                    )
+                    .arg(arg!(-w --window <WINDOW> "Window size for rate calculation (default: 10000)"))
+                    .arg(arg!(--spin_time <SPIN_TIME> "Spin time for discovery (if daemon not used)"))
+                    .arg(arg!(-s --use_sim_time "Enable ROS sim time"))
                 )
         )
         .subcommand(
             Command::new("service")
-                .about(wrapped("s") + "Various service commands")
-                .aliases(&["s"])
+                .about(aly("s", subs) + "Various service subcommands")
+                .aliases(&["s", "ser"])
                 .subcommand_required(true)
                 .arg_required_else_help(true)
                 .subcommand(
@@ -146,8 +293,8 @@ pub fn cli() -> Command {
         )
         .subcommand(
             Command::new("param")
-                .about(wrapped("p") + "Various param commands")
-                .aliases(&["p"])
+                .about(aly("p", subs) + "Various param subcommands")
+                .aliases(&["p", "par"])
                 .subcommand_required(true)
                 .arg_required_else_help(true)
                 .subcommand(
@@ -188,8 +335,8 @@ pub fn cli() -> Command {
         )
         .subcommand(
             Command::new("node")
-                .about(wrapped("n") + "Various node commands")
-                .aliases(&["n"])
+                .about(aly("n", subs) + "Various node subcommands")
+                .aliases(&["n", "nod"])
                 .subcommand_required(true)
                 .arg_required_else_help(true)
                 .subcommand(
@@ -205,8 +352,8 @@ pub fn cli() -> Command {
         )
         .subcommand(
             Command::new("interface")
-                .about(wrapped("i") + "Various interface commands")
-                .aliases(&["i"])
+                .about(aly("i", subs) + "Various interface subcommands\n")
+                .aliases(&["i", "int"])
                 .subcommand_required(true)
                 .arg_required_else_help(true)
                 .subcommand(
@@ -240,14 +387,14 @@ pub fn cli() -> Command {
 
         .subcommand(
             Command::new("run")
-                .about(wrapped("r") + "Run an executable")
+                .about(aly("r", subs) + "Run an executable")
                 .aliases(&["r"])
                 .subcommand_required(true)
                 .arg_required_else_help(true)
         )
         .subcommand(
             Command::new("launch")
-                .about(wrapped("l") + "Launch a launch file\n")
+                .about(aly("l", subs) + "Launch a launch file\n")
                 .aliases(&["l"])
                 .subcommand_required(true)
                 .arg_required_else_help(true)
@@ -255,7 +402,7 @@ pub fn cli() -> Command {
 
         .subcommand(
             Command::new("pkg")
-                .about("Various package commands")
+                .about("Various package subcommands")
                 .subcommand_required(true)
                 .arg_required_else_help(true)
                 .subcommand(
@@ -307,7 +454,7 @@ pub fn cli() -> Command {
 
         .subcommand(
             Command::new("bag")
-                .about("Various rosbag commands")
+                .about("Various rosbag subcommands")
                 .subcommand_required(true)
                 .arg_required_else_help(true)
         )
