@@ -1,10 +1,8 @@
 use clap::{arg, Command};
 
-use crate::cli::utils::aly;
-
-pub fn cmd(subs: bool, _logo: bool) -> Command {
+pub fn cmd() -> Command {
     Command::new("work")
-        .about(aly("w", subs) + "Various workspace subcommands\n")
+        .about("Various workspace subcommands\n")
         .aliases(&["w", "pkg", "pack"])
         .subcommand_required(true)
         .arg_required_else_help(true)

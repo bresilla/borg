@@ -1,10 +1,8 @@
 use clap::{arg, Command};
 
-use crate::cli::utils::aly;
-
-pub fn cmd(subs: bool, _logo: bool) -> Command {
+pub fn cmd() -> Command {
     Command::new("run")
-        .about(aly("r", subs) + "Run an executable")
+        .about( "Run an executable")
         .aliases(&["r"])
         .subcommand_required(true)
         .arg_required_else_help(true)

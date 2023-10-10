@@ -1,10 +1,8 @@
 use clap::{arg, Command};
 
-use crate::cli::utils::aly;
-
-pub fn cmd(subs: bool, _logo: bool) -> Command {
+pub fn cmd() -> Command {
     Command::new("interface")
-        .about(aly("i", subs) + "Various interface subcommands")
+        .about("Various interface subcommands")
         .aliases(&["i", "int"])
         .subcommand_required(true)
         .arg_required_else_help(true)

@@ -1,5 +1,4 @@
 pub mod borg;
-pub mod utils;
 pub mod action;
 pub mod topic;
 pub mod service;

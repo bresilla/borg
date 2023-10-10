@@ -1,10 +1,8 @@
 use clap::{arg, Command};
 
-use crate::cli::utils::aly;
-
-pub fn cmd(subs: bool, _logo: bool) -> Command {
+pub fn cmd() -> Command {
     Command::new("launch")
-        .about(aly("l", subs) + "Launch a launch file")
+        .about("Launch a launch file")
         .aliases(&["l"])
         .subcommand_required(true)
         .arg_required_else_help(true)

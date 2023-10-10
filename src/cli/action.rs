@@ -1,10 +1,8 @@
 use clap::{arg, Command};
 
-use crate::cli::utils::aly;
-
-pub fn cmd(subs: bool, _logo: bool) -> Command {
+pub fn cmd() -> Command {
     Command::new("action")
-        .about(aly("a", subs) + "Various action subcommands")
+        .about("Various action subcommands")
         .aliases(&["a", "act"])
         .subcommand_required(true)
         .arg_required_else_help(true)

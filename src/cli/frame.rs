@@ -1,10 +1,8 @@
 use clap::{arg, Command};
 
-use crate::cli::utils::aly;
-
-pub fn cmd(subs: bool, _logo: bool) -> Command {
+pub fn cmd() -> Command {
     Command::new("frame")
-        .about(aly("f", subs) + "Various transforms subcommands [WIP]\n")
+        .about("Various transforms subcommands [WIP]\n")
         .aliases(&["f", "tf"])
         .subcommand_required(true)
         .arg_required_else_help(true)
