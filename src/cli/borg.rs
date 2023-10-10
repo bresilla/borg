@@ -18,7 +18,8 @@ pub fn descriptin_str(word: &str) -> String {
     word.bright_white().to_string()
 }
 
-const ABOUT_STR: &str = "a wannabe ros2 command line tool alternative";
+const ABOUT_STR: &str = "a wannabe ros2 command line tool alternative
+[ALPHA STATE] ATM it calls ros2 commands externally";
 
 pub fn cli(logo: bool) -> Command {
     let logo_str: String = if logo {"

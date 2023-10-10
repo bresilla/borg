@@ -1,5 +1,21 @@
 # A wannabe ros2 command replacer
 
+[SUPER EARLY STATE] at the moment it calls ros2 commands externally, but the goal is to have a single binary that can be used to replace the ros2 command line tool.
+
+## Installation
+
+```bash
+cargo install borg_ros
+```
+
+## Usage
+
+```bash
+borg_ros <COMMAND>
+```
+
+## Commands
+
 ```              
 
          ███        ███         ███  
