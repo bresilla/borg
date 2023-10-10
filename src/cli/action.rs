@@ -22,7 +22,7 @@ pub fn cmd() -> Command {
             Command::new("list")
             .about("List all actions")
             .aliases(["l", "ls"])
-            .arg_required_else_help(true)
+            // .arg_required_else_help(true)
             .arg(arg!(-t --show_types "Additionally show the topic type"))
             .arg(arg!(-c --count_topics "Only display the number of topics discovered"))
         )

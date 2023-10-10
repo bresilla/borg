@@ -1,4 +1,4 @@
-use clap::{Command, builder::styling};
+use clap::{Command, builder::styling, arg};
 use colored::Colorize;
 use crate::cli::*;
 
@@ -91,4 +91,5 @@ Communication Commands:".bright_blue().bold().to_string().as_str()+"
         .subcommand(bag::cmd())
         .subcommand(daemon::cmd())
         .subcommand(middleware::cmd())
+        .arg(arg!(--about "about"))
 }
