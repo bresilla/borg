@@ -2,7 +2,7 @@ use clap::{arg, Command};
 
 pub fn cmd() -> Command {
     Command::new("work")
-        .about("Various workspace subcommands\n")
+        .about("Various workspace subcommands")
         .aliases(&["w", "pkg", "pack"])
         .subcommand_required(true)
         .arg_required_else_help(true)

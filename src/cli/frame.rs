@@ -2,7 +2,7 @@ use clap::{arg, Command};
 
 pub fn cmd() -> Command {
     Command::new("frame")
-        .about("Various transforms subcommands [WIP]\n")
+        .about("Various transforms subcommands [WIP]")
         .aliases(&["f", "tf"])
         .subcommand_required(true)
         .arg_required_else_help(true)

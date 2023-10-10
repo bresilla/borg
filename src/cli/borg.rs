@@ -2,12 +2,20 @@ use clap::{Command, builder::styling};
 use colored::Colorize;
 use crate::cli::*;
 
-pub fn aly(letter: &str) -> String {
+pub fn letter_str(letter: &str) -> String {
     let mut wrapped = "[".bright_green().to_string();
     wrapped.push_str(&letter.bright_green().italic().to_string());
     wrapped.push_str(&"]".bright_green().to_string());
     wrapped.push_str(&"  ".to_string());
     wrapped
+}
+
+pub fn command_str(word: &str) -> String {
+    word.bright_green().bold().to_string()
+}
+
+pub fn descriptin_str(word: &str) -> String {
+    word.bright_white().to_string()
 }
 
 const ABOUT_STR: &str = "a wannabe ros2 command line tool alternative";
@@ -25,32 +33,32 @@ pub fn cli(logo: bool) -> Command {
         ▄▄▄   ".bright_blue().to_string().as_str() + "     ▄▄▄   ".bright_blue().to_string().as_str() + "     ▄▄▄     ".bright_green().to_string().as_str() + "   
       ▟█████▙ ".bright_blue().to_string().as_str() + "   ▟█████▙ ".bright_blue().to_string().as_str() + "   ▟█████▙   ".bright_green().to_string().as_str() + "   
       ▜█████▛ ".bright_blue().to_string().as_str() + "   ▜█████▛ ".bright_blue().to_string().as_str() + "   ▜█████▛   ".bright_green().to_string().as_str() + "   
-        ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀     ".bright_green().to_string().as_str()} else { String::new() };
-
+        ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀     ".bright_green().to_string().as_str() + "
+        
+"+ &ABOUT_STR +"\n".bright_green().to_string().as_str() } else { String::new() };
 
     let help_str: String = " ".to_string().to_owned()+"
-    
-"+ &ABOUT_STR +"\n
 Usage:".bright_blue().bold().to_string().as_str()+"  borg".bright_green().bold().to_string().as_str()+" <COMMAND>".green().to_string().as_str()+"
+      ".bright_blue().bold().to_string().as_str()+"  borg".bright_green().bold().to_string().as_str()+" <C>".green().to_string().as_str()+"
 
-Monotor Commands:".bright_blue().bold().to_string().as_str()+"
-  action".bright_green().bold().to_string().as_str() + "      "+&aly("a")+"  Various action subcommands".bright_white().to_string().as_str()+"
-  topic".bright_green().bold().to_string().as_str() + "       "+&aly("t")+"  Various topic subcommands".bright_white().to_string().as_str()+"
-  service".bright_green().bold().to_string().as_str() + "     "+&aly("s")+"  Various service subcommands".bright_white().to_string().as_str()+"
-  param".bright_green().bold().to_string().as_str() + "       "+&aly("p")+"  Various param subcommands".bright_white().to_string().as_str()+"
-  node".bright_green().bold().to_string().as_str() + "        "+&aly("n")+"  Various node subcommands".bright_white().to_string().as_str()+"
-  interface".bright_green().bold().to_string().as_str() + "   "+&aly("i")+"  Various interface subcommands".bright_white().to_string().as_str()+"
-  frame".bright_green().bold().to_string().as_str() + "       "+&aly("f")+"  Various transforms subcommands [WIP]".bright_white().to_string().as_str()+"
+Utilities Commands:".bright_blue().bold().to_string().as_str()+"
+  "+ &command_str("action") + "      "+&letter_str("a")+ &descriptin_str("Various action subcommands") + "
+  "+ &command_str("topic") + "       "+&letter_str("t")+ &descriptin_str("Various topic subcommands") + "
+  "+ &command_str("service") + "     "+&letter_str("s")+ &descriptin_str("Various service subcommands") + "
+  "+ &command_str("param") + "       "+&letter_str("p")+ &descriptin_str("Various param subcommands") + "
+  "+ &command_str("node") + "        "+&letter_str("n")+ &descriptin_str("Various node subcommands") + "
+  "+ &command_str("interface") + "   "+&letter_str("i")+ &descriptin_str("Various interface subcommands") + "
+  "+ &command_str("frame") + "       "+&letter_str("f")+ &descriptin_str("Various transform subcommands [WIP]") + "
 
 Workspace Commands:".bright_blue().bold().to_string().as_str()+"
-  run".bright_green().bold().to_string().as_str() + "         "+&aly("r")+"  Run an executable".bright_white().to_string().as_str()+"
-  launch".bright_green().bold().to_string().as_str() + "      "+&aly("l")+"  Launch a launch file".bright_white().to_string().as_str()+"
-  work".bright_green().bold().to_string().as_str() + "        "+&aly("w")+"  Various workspace subcommands".bright_white().to_string().as_str()+"
+  "+ &command_str("run") + "         "+&letter_str("r")+ &descriptin_str("Run an executable file") + "
+  "+ &command_str("launch") + "      "+&letter_str("l")+ &descriptin_str("Run a launch file") + "
+  "+ &command_str("work") + "        "+&letter_str("w")+ &descriptin_str("Packages and workspace") + "
 
-Utilities Commands:".bright_blue().bold().to_string().as_str()+"     
-  bag".bright_green().bold().to_string().as_str() + "         "+&aly("b")+"  Various rosbag subcommands".bright_white().to_string().as_str()+"
-  daemon".bright_green().bold().to_string().as_str() + "      "+&aly("d")+"  Deamon and bridge subcommands [WIP]".bright_white().to_string().as_str()+"
-  middleware".bright_green().bold().to_string().as_str() + "  "+&aly("m")+"  Various middleware subcommands [WIP]".bright_white().to_string().as_str();
+Communication Commands:".bright_blue().bold().to_string().as_str()+"     
+  "+ &command_str("bag") + "         "+&letter_str("b")+ &descriptin_str("ROS bag tools") + "
+  "+ &command_str("daemon") + "      "+&letter_str("d")+ &descriptin_str("Deamon and bridge [WIP]") + "
+  "+ &command_str("middleware") + "  "+&letter_str("m")+ &descriptin_str("Middleware settings [WIP]");
 
     let styles = styling::Styles::styled()
         .header(styling::AnsiColor::Blue.on_default() | styling::Effects::BOLD)
@@ -63,7 +71,7 @@ Utilities Commands:".bright_blue().bold().to_string().as_str()+"
         .styles(styles)
         .about(&ABOUT_STR) 
         .author("bresilla <trim.bresilla@gmail.com>")
-        .version("1.0")
+        .version("0.1.0")
         .long_about("A ROS2 command line tool replacer that aims to be more user friendly and more powerful. [ALPHA STATE]")
         .subcommand_required(true)
         .arg_required_else_help(true)
