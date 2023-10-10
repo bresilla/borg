@@ -1,5 +1,5 @@
 [package]
-name = "borg"
+name = "borg_ros"
 version = "0.1.0"
 authors = ["Trim Bresilla <trim.bresilla@gmail.com>"]
 description = "a command line tool for ROS2"
