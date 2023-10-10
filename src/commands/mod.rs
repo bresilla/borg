@@ -1,5 +1,4 @@
 pub mod borg;
-pub mod about;
 pub mod action;
 pub mod topic;
 pub mod service;

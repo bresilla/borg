@@ -71,7 +71,6 @@ pub fn cmd() -> Command {
             Command::new("list")
             .about("Output a list of available topics")
             .aliases(["l", "ls"])
-            .arg_required_else_help(true)
             .arg(arg!(--spin_time <SPIN_TIME> "Spin time for discovery (if daemon not in use)"))
             .arg(arg!(-s --use_sim_time "Enable ROS simulation time"))
             .arg(arg!(--no_daemon "Don't spawn or use a running daemon"))
