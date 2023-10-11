@@ -8,6 +8,9 @@ pub fn handle(matches: ArgMatches) {
         Some(("topic", submatch)) => {
             topic::handle(submatch.clone());
         }
+        Some(("action", submatch)) => {
+            action::handle(submatch.clone());
+        }
         _ => unreachable!("UNREACHABLE"),
     };
 }
