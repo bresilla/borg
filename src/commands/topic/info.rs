@@ -4,16 +4,16 @@ use tokio::process::Command;
 use tokio::io::AsyncReadExt;
 
 async fn run_command(matches: ArgMatches) -> Result<(), Box<dyn std::error::Error>> {
-    let mut command = "ros2 topic list".to_owned();
+    let mut command = "ros2 topic info".to_owned();
 
-    if matches.get_flag("show_types") {
-        command.push_str(" --show-types");
-    }
-    if matches.get_flag("count_topics") {
-        command.push_str(" --count-topics");
-    }
-    if matches.get_flag("include_hidden_topics") {
-        command.push_str(" --include-hidden-topics");
+    let topic_name = matches.get_one::<String>("topic_name").unwrap();
+    command.push_str(" ");
+    command.push_str(&topic_name.to_string());
+
+    if matches.get_one::<String>("spin_time") != None {
+        let spin_time_value = matches.get_one::<String>("spin_time").unwrap();
+        command.push_str(" --spin-time ");
+        command.push_str(&spin_time_value.to_string());
     }
     if matches.get_flag("use_sim_time") {
         command.push_str(" --use-sim-time");
@@ -21,10 +21,8 @@ async fn run_command(matches: ArgMatches) -> Result<(), Box<dyn std::error::Erro
     if matches.get_flag("no_daemon") {
         command.push_str(" --no-daemon");
     }
-    if matches.get_one::<String>("spin_time") != None {
-        let spin_time_value = matches.get_one::<String>("spin_time").unwrap();
-        command.push_str(" --spin-time ");
-        command.push_str(&spin_time_value.to_string());
+    if matches.get_flag("verbose") {
+        command.push_str(" --verbose");
     }
 
     let mut cmd = Command::new("bash")
