@@ -18,11 +18,10 @@ pub fn descriptin_str(word: &str) -> String {
     word.bright_white().to_string()
 }
 
-const ABOUT_STR: &str = "a wannabe ros2 command line tool alternative
-[ALPHA STATE] ATM it calls ros2 commands externally";
+const ABOUT_STR: &str = "a wannabe ros2 command line tool alternative";
 
 pub fn cli(logo: bool) -> Command {
-    let logo_str: String = if logo {"
+    let _logo_1: String ="
         ▄▄▄   ".bright_blue().to_string().to_owned()+"     ▄▄▄   ".bright_blue().to_string().as_str() + "     ▄▄▄     ".bright_green().to_string().as_str() + " 
       ▟█████▙ ".bright_blue().to_string().as_str() + "   ▟█████▙ ".bright_blue().to_string().as_str() + "   ▟█████▙   ".bright_green().to_string().as_str() + "   
       ▜█████▛ ".bright_blue().to_string().as_str() + "   ▜█████▛ ".bright_blue().to_string().as_str() + "   ▜█████▛   ".bright_green().to_string().as_str() + "   
@@ -34,9 +33,24 @@ pub fn cli(logo: bool) -> Command {
         ▄▄▄   ".bright_blue().to_string().as_str() + "     ▄▄▄   ".bright_blue().to_string().as_str() + "     ▄▄▄     ".bright_green().to_string().as_str() + "   
       ▟█████▙ ".bright_blue().to_string().as_str() + "   ▟█████▙ ".bright_blue().to_string().as_str() + "   ▟█████▙   ".bright_green().to_string().as_str() + "   
       ▜█████▛ ".bright_blue().to_string().as_str() + "   ▜█████▛ ".bright_blue().to_string().as_str() + "   ▜█████▛   ".bright_green().to_string().as_str() + "   
-        ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀     ".bright_green().to_string().as_str() + "
-        
-"+ &ABOUT_STR +"\n".bright_green().to_string().as_str() } else { String::new() };
+        ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀     ".bright_green().to_string().as_str() + "\n";
+    
+    let _logo_2: String = " 
+▓████████████████████▓▒░      ░░▒▓███████████████▓▒░░   ░████████████████████▓▓▒░░      ░░▒▓███████████████▓▒░      
+▓████████████████████████▒   ░███████████████████████░  ░█████████████████████████░   ░▒██████████████████████▓░    
+▓████▒░░░░░░░░░░░░░░▓█████▒ ░██████▓▒▒▒▒▒▒▒▒▒▒▒▓██████░ ░█████▓▒▒▒▒▒▒▒▒▒▒▒▒▒▓██████░  ░██████▓▒▒▒▒▒▒▒▒▒▒▓██████▒░   
+▓████░              ░█████▒ ▒█████░             ░█████▒ ░█████░               ▓████▓░ ▓████▒░             ░▒▒▒▒▒░   
+▓████▒            ░░█████▒  ▒████▓              ░█████▒ ░█████░               ▒████▓░ ▓████▒░                       
+▓███████████████████████░   ▒████▓               █████▒ ░█████░░░░░░░░░░░░░░░▒█████▒  █████▒░       ░███████████░   
+▓███████████████████████░   ▒████▓               █████▒ ░█████████████████████████▓░  █████▒░       ░███████████░   
+▓████▒            ░░█████▒  ▒████▓              ░█████▒ ░█████████████████████████▓░  ▓████▒░       ░░░░░░▒█████░   
+▓████░              ░█████▒ ▒█████░             ░█████▒ ░█████░░░░░░░░░░░░░░░░▓████▓░ ▓████▒░             ░████▓░   
+▓████▒░░░░░░░░░░░░░░▓█████▒ ░██████▓▒▒▒░░░░░░▒▒▓██████░ ░█████░               ▒████▓░ ░██████▓▒▒▒░░░░░▒▒▒▓█████▒░   
+▓████████████████████████▒   ░███████████████████████░  ░█████░               ▒████▓░ ░▒██████████████████████▓░    
+▓████████████████████▓▒░      ░▒▓█████████████████▓▒░   ░█████░               ▒████▓░   ░▒▓█████████████████▓░░   
+    ".to_string();
+
+    let logo_str: String = if logo {_logo_1 } else { String::new() };
 
     let help_str: String = " ".to_string().to_owned()+"
 Usage:".bright_blue().bold().to_string().as_str()+"  borg".bright_green().bold().to_string().as_str()+" <COMMAND>".green().to_string().as_str()+"
