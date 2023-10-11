@@ -4,18 +4,16 @@
 
 <img align="right" width="32%" src="./misc/borg_3.png">
 
-a wannabe ros2 command replacer
+wannabe ros2 command replacer
 ===
 
-[SUPER EARLY STATE] at the moment it calls ros2 commands externally, but the goal is to have a single binary that can be used to replace the ros2 command line tool.
+[SUPER EARLY STATE] at the moment it calls ros2 commands externally, but the goal is to have a single binary that can be used to replace the ros2 command line tool. 
 
+## Usage
 ```
-borg <COMMAND>
-eg. borg topic list
+borg <COMMAND> [SUBCOMMAND] [OPTIONS] [ARGS]
 ```
 <hr>
-
-
 
 
 
@@ -25,30 +23,20 @@ eg. borg topic list
 cargo install borg_ros
 ```
 
-## Usage
 
-```bash
-borg <COMMAND>
-```
+## Features
+
+- [x] usual ros2 commands
+- [x] workspace creation and build commands
+- [x] coordinate frame commands
+- [x] bridge commands (foxglove & rosbridge)
+- [x] ros bag utilities
+- [x] daemon tools
+
 
 ## Commands
 
 ```
-         ███        ███         ███  
-       ███████    ███████     ███████
-       ███████    ███████     ███████
-         ███        ███         ███    
-
-         ███        ███         ███  
-       ███████    ███████     ███████
-       ███████    ███████     ███████
-         ███        ███         ███    
-         
-         ███        ███         ███  
-       ███████    ███████     ███████
-       ███████    ███████     ███████
-         ███        ███         ███   
-
 Usage:  borg <COMMAND>
 
 Monotor Commands:
@@ -70,3 +58,14 @@ Utilities Commands:
   daemon      [d]    Deamon and bridge subcommands [WIP]
   middleware  [m]    Various middleware subcommands [WIP]
 ```
+
+## Why?
+
+Why not? Rust is fun and I wanted to learn more how to interact with the ros2 api.
+
+## Roadmap
+
+- [ ] make every command call the ros2 api directly
+- [ ] use https://github.com/ros2-rust/ros2_rust as a library
+- [ ] add more commands (e.g. ros2 doctor)
+- [ ] add more tests
