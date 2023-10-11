@@ -3,21 +3,28 @@ use clap::ArgMatches;
 
 pub fn handle(matches: ArgMatches){
 
-    let show_types = matches.get_flag("show_types");
-    let count_topics = matches.get_flag("count_topics");
-    let include_hidden_topics = matches.get_flag("include_hidden_topics");
-    let use_sim_time = matches.get_flag("use_sim_time");
-    let no_daemon = matches.get_flag("no_daemon");
-    // let spin_time = matches.get_value_of("spin_time");
+    let mut command = "ros2 topic list".to_owned();
 
-    let command = "ros2 topic list".to_owned() + 
-        if show_types { " --show-types" } else { "" } +
-        if count_topics { " --count-topics" } else { "" } +
-        if include_hidden_topics { " --include-hidden-topics" } else { "" } +
-        if use_sim_time { " --use-sim-time" } else { "" } +
-        if no_daemon { " --no-daemon" } else { "" } +
-        // if spin_time { " --spin-time" } else { "" } +
-        "";
+    if matches.get_flag("show_types") {
+        command.push_str(" --show-types");
+    }
+    if matches.get_flag("count_topics") {
+        command.push_str(" --count-topics");
+    }
+    if matches.get_flag("include_hidden_topics") {
+        command.push_str(" --include-hidden-topics");
+    }
+    if matches.get_flag("use_sim_time") {
+        command.push_str(" --use-sim-time");
+    }
+    if matches.get_flag("no_daemon") {
+        command.push_str(" --no-daemon");
+    }
+    if matches.get_one::<String>("spin_time") != None {
+        let spin_time_value = matches.get_one::<String>("spin_time").unwrap();
+        command.push_str(" --spin-time ");
+        command.push_str(&spin_time_value.to_string());
+    }
 
     let output = Command::new("bash")
         .arg("-c")
