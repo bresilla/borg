@@ -1,4 +1,4 @@
-use clap::{arg, Command};
+use clap::{Command, Arg, ArgAction};
 
 pub fn cmd() -> Command {
     Command::new("action")
@@ -12,19 +12,53 @@ pub fn cmd() -> Command {
             .aliases(["i", "show"])
             .arg_required_else_help(true)
             .arg(
-                arg!(<ACTION_NAME> "Name of the ROS action to get info (e.g. '/fibonacci')")
+                Arg::new("action_name")
+                .help("Name of the ROS action to get info (e.g. '/fibonacci')")
                 .required(true)
+                .value_name("ACTION_NAME")
             )
-            .arg( arg!(-t --types "Additionally show the action type") )
-            .arg( arg!(-c --count "Only display the number of action clients and action servers") )
+            .arg(
+                Arg::new("show_types")
+                .short('t')
+                .long("show-types")
+                .aliases(&["show_types", "types"])
+                .help("Additionally show the action type")
+                .action(ArgAction::SetTrue)
+                .conflicts_with("count_actions")
+            )
+            .arg(
+                Arg::new("count_actions")
+                .short('c')
+                .long("count-actions")
+                .aliases(&["count_actions", "count"])
+                .help("Only display the number of actions discovered")
+                .action(ArgAction::SetTrue)
+                .conflicts_with("show_types")
+            )
         )
         .subcommand(
             Command::new("list")
             .about("List all actions")
             .aliases(["l", "ls"])
-            // .arg_required_else_help(true)
-            .arg(arg!(-t --show_types "Additionally show the topic type"))
-            .arg(arg!(-c --count_topics "Only display the number of topics discovered"))
+            .arg(
+                Arg::new("show_types")
+                .short('t')
+                .long("show-types")
+                .aliases(&["show_types", "types"])
+                .help("Additionally show the action type")
+                .action(ArgAction::SetTrue)
+                .conflicts_with("count_actions")
+            )
+            .arg(
+                Arg::new("count_actions")
+                .short('c')
+                .long("count-actions")
+                .aliases(&["count_actions", "count"])
+                .help("Only display the number of actions discovered")
+                .action(ArgAction::SetTrue)
+                .conflicts_with("show_types")
+            )
+
         )
         .subcommand(
             Command::new("goal")
@@ -32,17 +66,30 @@ pub fn cmd() -> Command {
             .aliases(["g", "send_goal"])
             .arg_required_else_help(true)
             .arg(
-                arg!(<ACTION_NAME> "Name of the ROS action (e.g. '/fibonacci')")
+                Arg::new("action_name")
+                .help("Name of the ROS action to get info (e.g. '/fibonacci')")
                 .required(true)
+                .value_name("ACTION_NAME")
             )
             .arg(
-                arg!(<ACTION_TYPE> "Type of the ROS action (e.g. 'example_interfaces/action/Fibonacci')")
+                Arg::new("action_type")
+                .help("Type of the ROS action (e.g. 'example_interfaces/action/Fibonacci')")
                 .required(true)
+                .value_name("ACTION_TYPE")
             )
             .arg(
-                arg!(<GOAL> "Goal to send to the action server (e.g. '{order: 10}')")
+                Arg::new("goal")
+                .help("Goal to send to the action server (e.g. '{order: 10}')")
                 .required(true)
+                .value_name("GOAL")
+                .action(ArgAction::Append)
             )
-            .arg( arg!(-f --feedback "Echo feedback messages for the goal") )
+            .arg(
+                Arg::new("feedback")
+                .short('f')
+                .long("feedback")
+                .help("Echo feedback messages for the goal")
+                .action(ArgAction::SetTrue)
+            )
         )
 }
