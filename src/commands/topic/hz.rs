@@ -50,10 +50,7 @@ async fn run_command(matches: ArgMatches) -> Result<(), Box<dyn std::error::Erro
         let output = String::from_utf8_lossy(&buffer[0..n]);
         print!("{}", output);
     }
-
-    // cmd.await?;
     Ok(())
-
 }
 
 pub fn handle(matches: ArgMatches){
