@@ -5,6 +5,7 @@ pub mod pub_;
 pub mod info;
 pub mod kind;
 pub mod bw;
+pub mod find;
 
 use clap::ArgMatches;
 
@@ -30,6 +31,9 @@ pub fn handle(matches: ArgMatches){
         }
         Some(("bw", args)) => {
             bw::handle(args.clone());
+        }
+        Some(("find", args)) => {
+            find::handle(args.clone());
         }
         _ => unreachable!("UNREACHABLE"),
     }
