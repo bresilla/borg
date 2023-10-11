@@ -40,9 +40,25 @@ pub fn cmd() -> Command {
             Command::new("list")
             .about("List all actions")
             .aliases(["l", "ls"])
-            // .arg_required_else_help(true)
-            .arg(arg!(-t --show_types "Additionally show the topic type"))
-            .arg(arg!(-c --count_topics "Only display the number of topics discovered"))
+            .arg(
+                Arg::new("show_types")
+                .short('t')
+                .long("show-types")
+                .aliases(&["show_types", "types"])
+                .help("Additionally show the action type")
+                .action(ArgAction::SetTrue)
+                .conflicts_with("count_actions")
+            )
+            .arg(
+                Arg::new("count_actions")
+                .short('c')
+                .long("count-actions")
+                .aliases(&["count_actions", "count"])
+                .help("Only display the number of actions discovered")
+                .action(ArgAction::SetTrue)
+                .conflicts_with("show_types")
+            )
+
         )
         .subcommand(
             Command::new("goal")
