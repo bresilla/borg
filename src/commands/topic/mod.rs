@@ -2,6 +2,7 @@ pub mod list;
 pub mod hz;
 pub mod echo;
 pub mod pub_;
+pub mod info;
 
 use clap::ArgMatches;
 
@@ -18,6 +19,9 @@ pub fn handle(matches: ArgMatches){
         }
         Some(("pub", args)) => {
             pub_::handle(args.clone());
+        }
+        Some(("info", args)) => {
+            info::handle(args.clone());
         }
         _ => unreachable!("UNREACHABLE"),
     }
