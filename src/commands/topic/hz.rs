@@ -4,9 +4,10 @@ use tokio::process::Command;
 use tokio::io::AsyncReadExt;
 
 async fn run_command(matches: ArgMatches) -> Result<(), Box<dyn std::error::Error>> {
-    let mut command = "ros2 topic hz ".to_owned();
+    let mut command = "ros2 topic hz".to_owned();
 
     let topic_name = matches.get_one::<String>("topic_name").unwrap();
+    command.push_str(" ");
     command.push_str(&topic_name.to_string());
 
     if matches.get_one::<String>("window") != None {

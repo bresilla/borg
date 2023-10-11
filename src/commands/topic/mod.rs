@@ -1,5 +1,6 @@
 pub mod list;
 pub mod hz;
+pub mod echo;
 
 use clap::ArgMatches;
 
@@ -11,11 +12,8 @@ pub fn handle(matches: ArgMatches){
         Some(("hz", args)) => {
             hz::handle(args.clone());
         }
-        Some(("info", _info)) => {
-            println!("info");
-        }
-        Some(("goal", _goal)) => {
-            println!("goal");
+        Some(("echo", args)) => {
+            echo::handle(args.clone());
         }
         _ => unreachable!("UNREACHABLE"),
     }
