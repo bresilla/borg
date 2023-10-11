@@ -1,5 +1,6 @@
 pub mod list;
 pub mod info;
+pub mod goal;
 
 use clap::ArgMatches;
 
@@ -10,6 +11,9 @@ pub fn handle(matches: ArgMatches){
         }
         Some(("list", args)) => {
             list::handle(args.clone());
+        }
+        Some(("goal", args)) => {
+            goal::handle(args.clone());
         }
         _ => unreachable!("UNREACHABLE"),
     }

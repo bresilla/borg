@@ -3,18 +3,29 @@ use std::process::Stdio;
 use tokio::process::Command;
 use tokio::io::AsyncReadExt;
 
+
 async fn run_command(matches: ArgMatches) -> Result<(), Box<dyn std::error::Error>> {
-    let mut command = "ros2 action info".to_owned();
+    let mut command = "ros2 action send_goal".to_owned();
 
     let action_name = matches.get_one::<String>("action_name").unwrap();
     command.push_str(" ");
     command.push_str(&action_name.to_string());
-
-    if matches.get_flag("show_types") {
-        command.push_str(" --show-types");
+    let action_type = matches.get_one::<String>("action_type").unwrap();
+    command.push_str(" ");
+    command.push_str(&action_type.to_string());
+    let values = matches.get_many::<String>("goal").unwrap();
+    let mut full_value = String::new();
+    command.push_str(" \"");
+    for value in values {
+        full_value.push_str(&value.to_string());
+        full_value.push_str(" ");
     }
-    if matches.get_flag("count_actions") {
-        command.push_str(" --count");
+    command.push_str(&full_value.to_string());
+    command.push_str("\" ");
+    
+
+    if matches.get_flag("feedback") {
+        command.push_str(" --feedback");
     }
 
     let mut cmd = Command::new("bash")
