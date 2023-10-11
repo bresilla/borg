@@ -2,7 +2,7 @@
 
 
 
-<img align="right" width="26%" src="./misc/borg_3.png">
+<img align="right" width="32%" src="./misc/borg_3.png">
 
 a wannabe ros2 command replacer
 ===
