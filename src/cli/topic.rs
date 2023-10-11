@@ -1,4 +1,4 @@
-use clap::{arg, Command, Arg, ArgAction};
+use clap::{Command, Arg, ArgAction};
 
 pub fn cmd() -> Command {
     Command::new("topic")
@@ -605,11 +605,38 @@ pub fn cmd() -> Command {
             .aliases(["d", "latency"])
             .arg_required_else_help(true)
             .arg(
-                arg!(<TOPIC_NAME> "Name of the ROS topic to get delay (e.g. '/chatter')")
+                Arg::new("topic_name")
+                .help("Name of the ROS topic to get bandwidth (e.g. '/chatter')")
                 .required(true)
+                .value_name("TOPIC_NAME")
             )
-            .arg(arg!(-w --window <WINDOW> "Window size for rate calculation (default: 10000)"))
-            .arg(arg!(--spin_time <SPIN_TIME> "Spin time for discovery (if daemon not used)"))
-            .arg(arg!(-s --use_sim_time "Enable ROS sim time"))
+            .arg(
+                Arg::new("window")
+                .short('w')
+                .long("window")
+                .aliases(&["win"])
+                .value_name("WINDOW")
+                .num_args(1)
+                .help("Window size for rate calculation (default: 10000)")
+                .action(ArgAction::Append)
+                .default_missing_value("10000")
+            )
+            .arg(
+                Arg::new("spin_time")
+                .long("spin-time")
+                .aliases(&["spin_time", "spin"])
+                .value_name("SPIN_TIME")
+                .num_args(1)
+                .help("Spin time for discovery (if daemon not used)")
+                .action(ArgAction::Append)
+            )
+            .arg(
+                Arg::new("use_sim_time")
+                .short('s')
+                .long("use-sim-time")
+                .aliases(&["use_sim_time", "use_simtime", "sim"])
+                .help("Enable ROS simulation time")
+                .action(ArgAction::SetTrue)
+            )
         )
 }
