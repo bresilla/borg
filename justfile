@@ -4,15 +4,17 @@ build:
 book:
     mdbook build book --dest-dir ../docs
 
-deploy type:
+do type:
     #!/usr/bin/env bash
     cargo release version {{type}} --execute
-    version=$(cat Cargo.toml | grep version | head -1 | choose 2 | tr -d ,\")
-    git tag -a $version -m $version
-    git cliff -u -t $version --prepend CHANGELOG.md
-    git add --all && git commit -m $version
-    git push --follow-tags --set-upstream origin develop
-    gh release create $version
+    version=v$(cat Cargo.toml | grep version | head -1 | choose 2 | tr -d ,\")
+    git cliff --tag $version > CHANGELOG.md
+    changelog=$(git cliff --unreleased --strip all)
+    git add -A && git commit -m "chore(release): prepare for $version"
+    git tag -a $version -m "$version" -m "$changelog"
+    git push --follow-tags --force --set-upstream origin develop
+    gh release create $version --notes "$changelog"
+
 
 default:
     echo 'Hello, world!'
