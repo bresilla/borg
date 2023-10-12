@@ -11,6 +11,9 @@ pub fn handle(matches: ArgMatches) {
         Some(("action", submatch)) => {
             action::handle(submatch.clone());
         }
+        Some(("service", submatch)) => {
+            service::handle(submatch.clone());
+        }
         _ => unreachable!("UNREACHABLE"),
     };
 }

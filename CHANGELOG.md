@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.1.21] - 2023-10-12
+
+### <!-- 0 -->⛰️  Features
+
+- Finished `borg service`
+- Finished `borg service type`
+- Finished `borg serice list`
+- Finished `borg service find`
+- Finished `borg service call`
+- Artifacts as archives
+
 ## [0.1.20] - 2023-10-12
 
 ### <!-- 0 -->⛰️  Features
