@@ -26,12 +26,12 @@ cargo install borg_ros
 
 ## Features
 
-- [x] usual ros2 commands
-- [x] workspace creation and build commands
-- [x] coordinate frame commands
-- [x] bridge commands (foxglove & rosbridge)
-- [x] ros bag utilities
-- [x] daemon tools
+- [ ] usual ros2 commands
+- [ ] workspace creation and build commands
+- [ ] coordinate frame commands
+- [ ] bridge commands (foxglove & rosbridge)
+- [ ] ros bag utilities
+- [ ] daemon tools
 
 
 ## Commands
