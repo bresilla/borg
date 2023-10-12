@@ -1,8 +1,11 @@
 name: Build
 
 on:
-  release:
-    types: [created]
+  # release:
+  #   types: [created]
+  push:
+    branches:
+      - develop
 
 jobs:
   build:
@@ -12,6 +15,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Compile
         id: compile
+        env:
+          TOOLCHAIN_VERSION : 1.70.0
         uses: rust-build/rust-build.action@v1.4.3
         with:
           RUSTTARGET: x86_64-unknown-linux-musl
