@@ -2,7 +2,7 @@ build:
     cargo build
 
 book:
-    mdbook build book/book.toml --dest-dir ./docs
+    mdbook build book --dest-dir ../docs
 
 default:
     echo 'Hello, world!'
