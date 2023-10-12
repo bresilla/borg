@@ -11,7 +11,7 @@ deploy type:
     git tag -a $version -m $version
     git cliff -u -t $version --prepend CHANGELOG.md
     git add --all && git commit -m $version
-    git push --follow-tags
+    git push --follow-tags --set-upstream origin develop
     gh release create $version
 
 default:
