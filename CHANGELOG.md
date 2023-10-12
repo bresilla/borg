@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.20] - 2023-10-12
+
+### <!-- 0 -->⛰️  Features
+
+- Build artifacts on release
+- Build workflow changes
+- Github workflow
+- Github workflow
+- Github workflow
+
 ## [0.1.19] - 2023-10-12
 
 ### <!-- 0 -->⛰️  Features
