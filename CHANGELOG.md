@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.23] - 2023-10-13
+
+### <!-- 0 -->⛰️  Features
+
+- Finished `borg param`
+- Finished `borg praram import`
+- Finished `borg param describe`
+- Finished `borg param remove`
+- Finished `borg param export`
+- Finished `borg param set`
+- Finished `borg param list`
+- Finished `borg param list`
+
 ## [0.1.22] - 2023-10-12
 
 ### <!-- 0 -->⛰️  Features

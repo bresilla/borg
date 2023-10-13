@@ -1,6 +1,6 @@
 [package]
 name = "borg_ros"
-version = "0.1.22"
+version = "0.1.23"
 authors = ["Trim Bresilla <trim.bresilla@gmail.com>"]
 description = "a command line tool for ROS2"
 edition = "2021"
