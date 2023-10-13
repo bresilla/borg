@@ -1,9 +1,10 @@
 # Changelog
 
-## [0.1.24] - 2023-10-13
+## [0.1.25] - 2023-10-13
 
 ### <!-- 1 -->🐛 Bug Fixes
 
+- Github action for x-th time
 - Github action
 
 ## [0.1.24] - 2023-10-13
