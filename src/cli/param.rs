@@ -74,7 +74,6 @@ pub fn cmd() -> Command {
                 .help("Name of the ROS node to get parameters from (e.g. '/talker')")
                 .required(true)
             )
-
             .arg(
                 Arg::new("include_hidden_nodes")
                 .long("include-hidden-nodes")
@@ -123,7 +122,14 @@ pub fn cmd() -> Command {
                 .aliases(&["param_type"])
                 .help("Print parameter types with parameter names")
                 .action(ArgAction::SetTrue)
-            )      
+            )
+            .arg(
+                Arg::new("filter")
+                .long("filter")
+                .aliases(&["regex"])
+                .value_name("REGEX")
+                .help("Only list parameters matching the provided regex")
+            )    
 
         )
         .subcommand(

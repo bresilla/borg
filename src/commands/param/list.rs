@@ -5,15 +5,11 @@ use tokio::io::AsyncReadExt;
 
 
 async fn run_command(matches: ArgMatches) -> Result<(), Box<dyn std::error::Error>> {
-    let mut command = "ros2 param get".to_owned();
+    let mut command = "ros2 param list".to_owned();
 
     let node_name = matches.get_one::<String>("node_name").unwrap();
     command.push_str(" ");
     command.push_str(&node_name.to_string());
-
-    let param_name = matches.get_one::<String>("param_name").unwrap();
-    command.push_str(" ");
-    command.push_str(&param_name.to_string());
 
     if matches.get_one::<String>("spin_time") != None {
         let spin_time_value = matches.get_one::<String>("spin_time").unwrap();
@@ -30,8 +26,20 @@ async fn run_command(matches: ArgMatches) -> Result<(), Box<dyn std::error::Erro
     if matches.get_flag("no_daemon") {
         command.push_str(" --no-daemon");
     }
-    if matches.get_flag("hide_type") {
-        command.push_str(" --hide-type");
+    if matches.get_flag("param_type") {
+        command.push_str(" --param-type");
+    }
+
+    if matches.get_one::<String>("param_prefixes") != None {
+        let spin_time_value = matches.get_one::<String>("param_prefixes").unwrap();
+        command.push_str(" --param-prefixes ");
+        command.push_str(&spin_time_value.to_string());
+    }
+
+    if matches.get_one::<String>("filter") != None {
+        let spin_time_value = matches.get_one::<String>("filter").unwrap();
+        command.push_str(" --filter ");
+        command.push_str(&spin_time_value.to_string());
     }
 
     println!("running: {}", command);
