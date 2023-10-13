@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.24] - 2023-10-13
+
+### <!-- 3 -->📚 Documentation
+
+- Update documentation and asset paths
+
 ## [0.1.23] - 2023-10-13
 
 ### <!-- 0 -->⛰️  Features
