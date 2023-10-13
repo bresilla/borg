@@ -1,42 +1,26 @@
-name: Build
-
+# .github/workflows/release.yml
 on:
   release:
     types: [created]
 
 jobs:
   release:
-    env:
-      TOOLCHAIN_VERSION : 1.70.0
-    name: Release
+    name: release ${{ matrix.target }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [ x86_64-unknown-linux-musl]
     steps:
-      - uses: actions/checkout@v3
-      - uses: dtolnay/rust-toolchain@nightly
-        with:
-          toolchain: nightly-2023-08-01
-      - uses: Swatinem/rust-cache@v2
-        with:
-          prefix-key: "v0-rust"
-      - run: cargo build --release
-      - name: get_current_time
-        id: get_current_time
-        run: echo "::set-output name=now::$(date +'%s')"
-      - name: Upload Archive Asset
-        uses: actions/upload-release-asset@v1
+      - uses: actions/checkout@master
+      - name: Compile and release
+        id: compile
+        uses: rust-build/rust-build.action@v1.4.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./target/release/borg
-          asset_name: borg-${{ github.event.release.tag_name }}-${{ steps.get_current_time.outputs.now }}-${{ github.sha }}.tar.gz
-          asset_content_type: application/gzip
-      - name: Upload Binary Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./target/release/borg
-          asset_name: borg-${{ github.event.release.tag_name }}-${{ steps.get_current_time.outputs.now }}-${{ github.sha }}
-          asset_content_type: application/octet-stream
+          TOOLCHAIN_VERSION : 1.70.0
+          RUSTTARGET: ${{ matrix.target }}
+          ARCHIVE_TYPES: "zip tar.gz"
+          ARCHIVE_NAME: "borg${{ matrix.target }}"
+          # EXTRA_FILES: "target/${{ matrix.target }}/release/borg"
