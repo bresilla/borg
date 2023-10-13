@@ -24,14 +24,19 @@ jobs:
         run: echo "::set-output name=now::$(date +'%s')"
       - name: Upload Archive Asset
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: /home/runner/work/borg/borg
+          asset_path: ./target/release/borg
           asset_name: borg-${{ github.event.release.tag_name }}-${{ steps.get_current_time.outputs.now }}-${{ github.sha }}.tar.gz
           asset_content_type: application/gzip
       - name: Upload Binary Asset
         uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          asset_path: /home/runner/work/borg/borg
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./target/release/borg
           asset_name: borg-${{ github.event.release.tag_name }}-${{ steps.get_current_time.outputs.now }}-${{ github.sha }}
           asset_content_type: application/octet-stream
