@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [ x86_64-unknown-linux-musl]
+        target: [x86_64-unknown-linux-musl]
     steps:
       - uses: actions/checkout@master
       - name: Compile and release
@@ -20,5 +20,4 @@ jobs:
           TOOLCHAIN_VERSION : 1.70.0
           RUSTTARGET: ${{ matrix.target }}
           ARCHIVE_TYPES: "zip tar.gz"
-          ARCHIVE_NAME: "borg${{ matrix.target }}"
-          # EXTRA_FILES: "target/${{ matrix.target }}/release/borg"
+          # ARCHIVE_NAME: "borg_${{ matrix.target }}"

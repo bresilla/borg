@@ -1,8 +1,7 @@
-![BORG](images/borg.png)
+<p align="center">
+  <img src="images/borg.png" />
+</p>
 
-# BORG
-
-BORG is a tool that wants to help you to develop ROS2 applications faster and easier.
 
 ## What is BORG?
 
