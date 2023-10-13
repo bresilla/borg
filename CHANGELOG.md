@@ -2,6 +2,12 @@
 
 ## [0.1.24] - 2023-10-13
 
+### <!-- 1 -->🐛 Bug Fixes
+
+- Github action
+
+## [0.1.24] - 2023-10-13
+
 ### <!-- 3 -->📚 Documentation
 
 - Update documentation and asset paths
