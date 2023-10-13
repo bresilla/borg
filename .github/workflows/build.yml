@@ -26,12 +26,12 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ./target/release/your_binary
-          asset_name: your_binary-${{ github.event.release.tag_name }}-${{ steps.get_current_time.outputs.now }}-${{ github.sha }}.tar.gz
+          asset_path: /home/runner/work/borg/borg
+          asset_name: borg-${{ github.event.release.tag_name }}-${{ steps.get_current_time.outputs.now }}-${{ github.sha }}.tar.gz
           asset_content_type: application/gzip
       - name: Upload Binary Asset
         uses: actions/upload-release-asset@v1
         with:
-          asset_path: ./target/release/your_binary
-          asset_name: your_binary-${{ github.event.release.tag_name }}-${{ steps.get_current_time.outputs.now }}-${{ github.sha }}
+          asset_path: /home/runner/work/borg/borg
+          asset_name: borg-${{ github.event.release.tag_name }}-${{ steps.get_current_time.outputs.now }}-${{ github.sha }}
           asset_content_type: application/octet-stream
