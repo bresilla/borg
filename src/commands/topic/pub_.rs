@@ -22,7 +22,7 @@ async fn run_command(matches: ArgMatches) -> Result<(), Box<dyn std::error::Erro
     command.push_str(&full_value.to_string());
     command.push_str("\" ");
 
-    println!("{}", full_value);
+    // println!("{}", full_value);
 
     if matches.get_one::<String>("rate") != None {
         let rate_value = matches.get_one::<String>("rate").unwrap();
