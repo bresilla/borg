@@ -4,6 +4,7 @@ pub mod set;
 pub mod export;
 pub mod remove;
 pub mod describe;
+pub mod import;
 
 use clap::ArgMatches;
 
@@ -26,6 +27,9 @@ pub fn handle(matches: ArgMatches){
         }
         Some(("describe", args)) => {
             describe::handle(args.clone());
+        }
+        Some(("import", args)) => {
+            import::handle(args.clone());
         }
         _ => unreachable!("UNREACHABLE"),
     }

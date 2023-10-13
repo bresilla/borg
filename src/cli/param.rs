@@ -1,4 +1,4 @@
-use clap::{arg, Command, Arg, ArgAction};
+use clap::{Command, Arg, ArgAction};
 
 pub fn cmd() -> Command {
     Command::new("param")
@@ -363,7 +363,13 @@ pub fn cmd() -> Command {
                 .required(true)
                 .value_name("PARAM_FILE")
             )
-            .arg(arg!(--no_use_wildcard "Do not load parameters in the '/**' namespace into the node"))
+            .arg(
+                Arg::new("no_use_wildcard")
+                .long("no-use-wildcard")
+                .aliases(&["wild"])
+                .help("Do not load parameters in the '/**' namespace into the node")
+                .action(ArgAction::SetTrue)
+            )
             .arg(
                 Arg::new("include_hidden_nodes")
                 .long("include-hidden-nodes")
