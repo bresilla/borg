@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.1.26] - 2023-10-13
+
+### <!-- 3 -->📚 Documentation
+
+- Add documentation for BORG tool.
+
 ## [0.1.25] - 2023-10-13
 
 ### <!-- 1 -->🐛 Bug Fixes
