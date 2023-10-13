@@ -2,6 +2,7 @@ pub mod get;
 pub mod list;
 pub mod set;
 pub mod export;
+pub mod remove;
 
 use clap::ArgMatches;
 
@@ -18,6 +19,9 @@ pub fn handle(matches: ArgMatches){
         }
         Some(("export", args)) => {
             export::handle(args.clone());
+        }
+        Some(("remove", args)) => {
+            remove::handle(args.clone());
         }
         _ => unreachable!("UNREACHABLE"),
     }
