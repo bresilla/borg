@@ -4,6 +4,18 @@
 
 ### <!-- 0 -->⛰️  Features
 
+- Merging finished `roc node`
+- Finished `roc node info`
+- Finished `roc node list`
+
+### <!-- 3 -->📚 Documentation
+
+- Various updates on mdbook
+
+## [0.1.27] - 2023-10-16
+
+### <!-- 0 -->⛰️  Features
+
 - Namechange to `roc` from `borg`
 
 ### <!-- 3 -->📚 Documentation
