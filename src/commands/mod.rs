@@ -1,4 +1,3 @@
-pub mod borg;
 pub mod action;
 pub mod topic;
 pub mod service;
@@ -14,3 +13,23 @@ pub mod work;
 pub mod bag;
 pub mod daemon;
 pub mod middleware;
+
+use clap::ArgMatches;
+
+pub fn handle(matches: ArgMatches) {
+    match matches.subcommand() {
+        Some(("topic", submatch)) => {
+            topic::handle(submatch.clone());
+        }
+        Some(("action", submatch)) => {
+            action::handle(submatch.clone());
+        }
+        Some(("service", submatch)) => {
+            service::handle(submatch.clone());
+        }
+        Some(("param", submatch)) => {
+            param::handle(submatch.clone());
+        }
+        _ => unreachable!("UNREACHABLE"),
+    };
+}

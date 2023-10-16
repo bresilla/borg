@@ -2,7 +2,7 @@
 
 
 
-<img align="right" width="32%" src="./misc/borg_3.png">
+<img align="right" width="32%" src="./misc/roc_3.png">
 
 wannabe ros2 command replacer
 ===
@@ -11,7 +11,7 @@ wannabe ros2 command replacer
 
 ## Usage
 ```
-borg <COMMAND> [SUBCOMMAND] [OPTIONS] [ARGS]
+roc <COMMAND> [SUBCOMMAND] [OPTIONS] [ARGS]
 ```
 <hr>
 
@@ -20,7 +20,7 @@ borg <COMMAND> [SUBCOMMAND] [OPTIONS] [ARGS]
 ## Installation
 
 ```bash
-cargo install borg_ros
+cargo install roc_ros
 ```
 
 
@@ -37,7 +37,7 @@ cargo install borg_ros
 ## Commands
 
 ```
-Usage:  borg <COMMAND>
+Usage:  roc <COMMAND>
 
 Monotor Commands:
   action      [a]    Various action subcommands

@@ -1,5 +1,5 @@
 [package]
-name = "borg_ros"
+name = "roc_ros"
 version = "0.1.26"
 authors = ["Trim Bresilla <trim.bresilla@gmail.com>"]
 description = "a command line tool for ROS2"
@@ -7,7 +7,7 @@ edition = "2021"
 license = "MIT OR Apache-2.0"
 
 [[bin]]
-name = "borg"
+name = "roc"
 path = "src/main.rs"
 
 [dependencies]

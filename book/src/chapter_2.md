@@ -77,18 +77,18 @@ sudo apt install ros-humble-tf2*
 su
 ```
 
-## Install BORG
+## Install roc
 
 ### Cargo
 
 ```bash
-cargo install borg_ros
+cargo install roc_ros
 ```
 
 ### From Source
 
 ```bash
 git clone
-cd borg_ros
+cd roc_ros
 cargo install --path .
 ```
