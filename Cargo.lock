@@ -387,7 +387,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "roc_ros"
+name = "rocc"
 version = "0.1.28"
 dependencies = [
  "anyhow",

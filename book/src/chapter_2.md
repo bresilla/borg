@@ -82,13 +82,13 @@ su
 ### Cargo
 
 ```bash
-cargo install roc_ros
+cargo install rocc
 ```
 
 ### From Source
 
 ```bash
 git clone
-cd roc_ros
+cd rocc
 cargo install --path .
 ```

@@ -1,8 +1,8 @@
 [package]
-name = "roc_ros"
+name = "rocc"
 version = "0.1.28"
 authors = ["Trim Bresilla <trim.bresilla@gmail.com>"]
-description = "a command line tool for ROS2"
+description = "Robot Operations Command Center"
 edition = "2021"
 license = "MIT OR Apache-2.0"
 

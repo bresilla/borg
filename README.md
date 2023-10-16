@@ -21,7 +21,7 @@ roc <COMMAND> [SUBCOMMAND] [OPTIONS] [ARGS]
 ## Installation
 
 ```bash
-cargo install roc_ros
+cargo install rocc
 ```
 
 
