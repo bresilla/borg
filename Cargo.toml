@@ -1,6 +1,6 @@
 [package]
 name = "roc_ros"
-version = "0.1.26"
+version = "0.1.27"
 authors = ["Trim Bresilla <trim.bresilla@gmail.com>"]
 description = "a command line tool for ROS2"
 edition = "2021"

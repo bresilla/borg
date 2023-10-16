@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.27] - 2023-10-16
+
+### <!-- 0 -->⛰️  Features
+
+- Namechange to `roc` from `borg`
+
+### <!-- 3 -->📚 Documentation
+
+- Site titile to `roc`
+- LOGO change
+- Update documentation for BORG installation
+
 ## [0.1.26] - 2023-10-13
 
 ### <!-- 3 -->📚 Documentation
