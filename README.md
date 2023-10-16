@@ -6,8 +6,9 @@
 
 wannabe ros2 command replacer
 ===
+#### robot operations command - roc
 
-[SUPER EARLY STATE] at the moment it calls ros2 commands externally, but the goal is to have a single binary that can be used to replace the ros2 command line tool. 
+[SUPER EARLY STAGE] at the moment it calls ros2 commands externally, but the goal is to have a single binary that can be used to replace the ros2 command line tool. 
 
 ## Usage
 ```
