@@ -27,6 +27,14 @@ pub fn cmd() -> Command {
                 .action(ArgAction::SetTrue)
             )
             .arg(
+                Arg::new("use_sim_time")
+                .short('s')
+                .long("use-sim-time")
+                .aliases(&["use_sim_time", "use_simtime", "sim"])
+                .help("Enable ROS simulation time")
+                .action(ArgAction::SetTrue)
+            )
+            .arg(
                 Arg::new("no_daemon")
                 .long("no-daemon")
                 .aliases(&["no_daemon"])
