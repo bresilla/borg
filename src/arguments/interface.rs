@@ -45,8 +45,10 @@ pub fn cmd() -> Command {
             .aliases(["p", "pkg"])
             .arg_required_else_help(true)
             .arg(
-                arg!(<PACKAGE_NAME> "Name of the ROS package to get info (e.g. 'std_msgs')")
+                Arg::new("package_name")
+                .help("Name of the ROS package (e.g. 'example_interfaces')")
                 .required(true)
+                .value_name("PACKAGE_NAME")
             )
         )
         .subcommand(
