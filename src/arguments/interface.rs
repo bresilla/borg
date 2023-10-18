@@ -1,4 +1,4 @@
-use clap::{arg, Command, Arg, ArgAction};
+use clap::{Command, Arg, ArgAction};
 
 pub fn cmd() -> Command {
     Command::new("interface")
@@ -90,11 +90,23 @@ pub fn cmd() -> Command {
             .aliases(["s", "info"])
             .arg_required_else_help(true)
             .arg(
-                arg!(<TYPE> "Show an interface definition (e.g. 'example_interfaces/msg/String'). Passing '-' reads the argument from stdin (e.g. 'ros2 topic type /chatter | ros2 interface show -').")
+                Arg::new("type")
+                .help("Show an interface definition (e.g. 'example_interfaces/msg/String'). Passing '-' reads the argument from stdin (e.g. 'ros2 topic type /chatter | ros2 interface show -')")
                 .required(true)
+                .value_name("TYPE")
             )
-            .arg(arg!(--all_comments "Show all comments, including for nested interface definitions"))
-            .arg(arg!(--no_comments "Show no comments or whitespace"))
+            .arg(
+                Arg::new("all_comments")
+                .long("all-comments")
+                .help("Show all comments, including for nested interface definitions")
+                .action(ArgAction::SetTrue)
+            )
+            .arg(
+                Arg::new("no_comments")
+                .long("no-comments")
+                .help("Show no comments or whitespace")
+                .action(ArgAction::SetTrue)
+            )
         )
         .subcommand(
             Command::new("model")
