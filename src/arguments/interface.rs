@@ -1,4 +1,4 @@
-use clap::{arg, Command};
+use clap::{arg, Command, Arg, ArgAction};
 
 pub fn cmd() -> Command {
     Command::new("interface")
@@ -10,10 +10,34 @@ pub fn cmd() -> Command {
             Command::new("list")
             .about("List all interface types available")
             .aliases(["l", "ls"])
-            .arg_required_else_help(true)
-            .arg(arg!(-m --only_msgs "Print out only the message types"))
-            .arg(arg!(-s --only_srvs "Print out only the service types"))
-            .arg(arg!(-a --only_actions "Print out only the action types"))
+            .arg(
+                Arg::new("messages")
+                .long("messages")
+                .short('m')
+                .aliases(&["msgs"])
+                .visible_aliases(&["all"])
+                .help("Print out only the message types")
+                .action(ArgAction::SetTrue)
+                .conflicts_with_all(&["services", "actions"])
+            )
+            .arg(
+                Arg::new("services")
+                .long("services")
+                .short('s')
+                .aliases(&["srvs"])
+                .help("Print out only the service types")
+                .action(ArgAction::SetTrue)
+                .conflicts_with_all(&["messages", "actions"])
+            )
+            .arg(
+                Arg::new("actions")
+                .long("actions")
+                .short('a')
+                .aliases(&["acts"])
+                .help("Print out only the action types")
+                .action(ArgAction::SetTrue)
+                .conflicts_with_all(&["messages", "services"])
+            )
         )
         .subcommand(
             Command::new("package")

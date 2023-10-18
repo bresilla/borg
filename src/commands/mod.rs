@@ -33,6 +33,9 @@ pub fn handle(matches: ArgMatches) {
         Some(("node", submatch)) => {
             node::handle(submatch.clone());
         }
+        Some(("interface", submatch)) => {
+            interface::handle(submatch.clone());
+        }
         _ => unreachable!("UNREACHABLE"),
     };
 }
