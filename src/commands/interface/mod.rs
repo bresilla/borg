@@ -1,6 +1,7 @@
 pub mod list;
 pub mod package;
 pub mod all;
+pub mod model;
 
 use clap::ArgMatches;
 
@@ -14,6 +15,9 @@ pub fn handle(matches: ArgMatches){
         }
         Some(("all", args)) => {
             all::handle(args.clone());
+        }
+        Some(("model", args)) => {
+            model::handle(args.clone());
         }
         _ => unreachable!("UNREACHABLE"),
     }

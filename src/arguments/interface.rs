@@ -100,11 +100,18 @@ pub fn cmd() -> Command {
             Command::new("model")
             .about("Output an interface model/prototype")
             .aliases(["m", "prototype", "proto"])
-            .arg_required_else_help(true)                                                                                                                                                                                                                      
+            .arg_required_else_help(true)
             .arg(
-                arg!(<TYPE> "Show an interface definition (e.g. 'example_interfaces/msg/String')")
+                Arg::new("type")
+                .help("Show an interface definition (e.g. 'example_interfaces/msg/String')")
                 .required(true)
+                .value_name("TYPE")
             )
-            .arg(arg!(--no_quotes "if true output has no outer quotes"))               
+            .arg(
+                Arg::new("no_quotes")
+                .long("no-quotes")
+                .help("Do not output outer quotes")
+                .action(ArgAction::SetTrue)
+            )             
         )
 }
