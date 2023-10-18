@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.1.29] - 2023-10-18
+
+### <!-- 0 -->⛰️  Features
+
+- Finished `roc interfaces show`
+- Finished `roc interface model`
+- Finished `roc interface all`
+- Finished `roc interface package`
+- Finished `ros interface list`
+
+### <!-- 3 -->📚 Documentation
+
+- New logo
+
+### <!-- 7 -->⚙️ Miscellaneous Tasks
+
+- Update dependency on RustDDS from GitHub repository
+- Update CARGo package name
+
+### Fead
+
+- Finished `roc interface`
+
 ## [0.1.28] - 2023-10-16
 
 ### <!-- 0 -->⛰️  Features
