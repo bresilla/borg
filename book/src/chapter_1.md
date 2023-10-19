@@ -9,6 +9,10 @@ roc is a tool that wants to help you to develop ROS2 applications faster and eas
 
 ## Why roc?
 
+<p align="center">
+  <img src="images/standards.png" />
+</p>
+
 roc aims to be a tool that will completely be written in RUST and at some point not relay on the ROS2 CLI anymore. This will allow us to have a tool that is faster and more reliable. It will also allow us to have a tool that can be used on other platforms like Windows.
 
 ## Features
