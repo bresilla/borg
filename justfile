@@ -3,6 +3,7 @@ build:
 
 book:
     mdbook build book --dest-dir ../docs
+    git add -A && git commit -m "docs: building website/mdbook"
 
 do type:
     #!/usr/bin/env bash
