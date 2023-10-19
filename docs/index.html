@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Chapter 1 - BORG</title>
+        <title>Intro</title>
 
 
         <!-- Custom HTML head -->
@@ -80,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html" class="active"><strong aria-hidden="true">1.</strong> Chapter 1</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html" class="active"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Installation</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -109,7 +109,7 @@
                         </button>
                     </div>
 
-                    <h1 class="menu-title">BORG</h1>
+                    <h1 class="menu-title"></h1>
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -141,14 +141,37 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="borg"><a class="header" href="#borg">BORG</a></h1>
-<h2 id="borg-is-a-tool-that-wants-to-help-you-to-develop-ros2-applications-faster-and-easier"><a class="header" href="#borg-is-a-tool-that-wants-to-help-you-to-develop-ros2-applications-faster-and-easier">BORG is a tool that wants to help you to develop ROS2 applications faster and easier.</a></h2>
+                        <p align="center">
+  <img src="images/roc.png" />
+</p>
+<h2 id="what-is-roc"><a class="header" href="#what-is-roc">What is roc?</a></h2>
+<p>roc is a tool that wants to help you to develop ROS2 applications faster and easier. It is a collection of tools that are used to generate code, build and test your ROS2 applications. It is based on the <a href="https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/">ROS2 CLI</a>.</p>
+<h2 id="why-roc"><a class="header" href="#why-roc">Why roc?</a></h2>
+<p align="center">
+  <img src="images/standards.png" />
+</p>
+<p>roc aims to be a tool that will completely be written in RUST and at some point not relay on the ROS2 CLI anymore. This will allow us to have a tool that is faster and more reliable. It will also allow us to have a tool that can be used on other platforms like Windows.</p>
+<h2 id="features"><a class="header" href="#features">Features</a></h2>
+<ul>
+<li>Generate ROS2 packages with a template system</li>
+<li>Build ROS2 packages (colcon at the moment) but will be replaced by a custom build system</li>
+<li>Adding missing feature that IMO ros2 cli should have like:
+<ul>
+<li><code>roc frame</code> to work with tf frames, cordination systems and transformations</li>
+<li><code>roc bridge</code> to bridge topics between different ROS2 instances</li>
+</ul>
+</li>
+<li>Adding TUI (Text User Interface) to make it easier to work with ROS2</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
 
+                            <a rel="next" href="chapter_2.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -157,6 +180,9 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
 
+                    <a rel="next" href="chapter_2.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>

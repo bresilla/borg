@@ -1,5 +1,94 @@
 # Changelog
 
+## [0.1.30] - 2023-10-19
+
+### <!-- 7 -->⚙️ Miscellaneous Tasks
+
+- Add GitHub Actions workflow for creating releases
+
+### Dosc
+
+- Add image to "Why roc?" section
+
+## [0.1.29] - 2023-10-18
+
+### <!-- 0 -->⛰️  Features
+
+- Finished `roc interfaces show`
+- Finished `roc interface model`
+- Finished `roc interface all`
+- Finished `roc interface package`
+- Finished `ros interface list`
+
+### <!-- 3 -->📚 Documentation
+
+- New logo
+
+### <!-- 7 -->⚙️ Miscellaneous Tasks
+
+- Update dependency on RustDDS from GitHub repository
+- Update CARGo package name
+
+### Fead
+
+- Finished `roc interface`
+
+## [0.1.28] - 2023-10-16
+
+### <!-- 0 -->⛰️  Features
+
+- Merging finished `roc node`
+- Finished `roc node info`
+- Finished `roc node list`
+
+### <!-- 3 -->📚 Documentation
+
+- Various updates on mdbook
+
+## [0.1.27] - 2023-10-16
+
+### <!-- 0 -->⛰️  Features
+
+- Namechange to `roc` from `borg`
+
+### <!-- 3 -->📚 Documentation
+
+- Site titile to `roc`
+- LOGO change
+- Update documentation for BORG installation
+
+## [0.1.26] - 2023-10-13
+
+### <!-- 3 -->📚 Documentation
+
+- Add documentation for BORG tool.
+
+## [0.1.25] - 2023-10-13
+
+### <!-- 1 -->🐛 Bug Fixes
+
+- Github action for x-th time
+- Github action
+
+## [0.1.24] - 2023-10-13
+
+### <!-- 3 -->📚 Documentation
+
+- Update documentation and asset paths
+
+## [0.1.23] - 2023-10-13
+
+### <!-- 0 -->⛰️  Features
+
+- Finished `borg param`
+- Finished `borg praram import`
+- Finished `borg param describe`
+- Finished `borg param remove`
+- Finished `borg param export`
+- Finished `borg param set`
+- Finished `borg param list`
+- Finished `borg param list`
+
 ## [0.1.22] - 2023-10-12
 
 ### <!-- 0 -->⛰️  Features

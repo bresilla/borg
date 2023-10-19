@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title></title>
-        <meta name="robots" content="noindex" />
+        <title>Installation</title>
 
 
         <!-- Custom HTML head -->
@@ -81,7 +80,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded "><a href="chapter_2.html"><strong aria-hidden="true">2.</strong> Installation</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Intro</a></li><li class="chapter-item expanded "><a href="chapter_2.html" class="active"><strong aria-hidden="true">2.</strong> Installation</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -142,29 +141,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p align="center">
-  <img src="images/roc.png" />
-</p>
-<h2 id="what-is-roc"><a class="header" href="#what-is-roc">What is roc?</a></h2>
-<p>roc is a tool that wants to help you to develop ROS2 applications faster and easier. It is a collection of tools that are used to generate code, build and test your ROS2 applications. It is based on the <a href="https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/">ROS2 CLI</a>.</p>
-<h2 id="why-roc"><a class="header" href="#why-roc">Why roc?</a></h2>
-<p align="center">
-  <img src="images/standards.png" />
-</p>
-<p>roc aims to be a tool that will completely be written in RUST and at some point not relay on the ROS2 CLI anymore. This will allow us to have a tool that is faster and more reliable. It will also allow us to have a tool that can be used on other platforms like Windows.</p>
-<h2 id="features"><a class="header" href="#features">Features</a></h2>
-<ul>
-<li>Generate ROS2 packages with a template system</li>
-<li>Build ROS2 packages (colcon at the moment) but will be replaced by a custom build system</li>
-<li>Adding missing feature that IMO ros2 cli should have like:
-<ul>
-<li><code>roc frame</code> to work with tf frames, cordination systems and transformations</li>
-<li><code>roc bridge</code> to bridge topics between different ROS2 instances</li>
-</ul>
-</li>
-<li>Adding TUI (Text User Interface) to make it easier to work with ROS2</li>
-</ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+                        <h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
 <h2 id="install-ros2"><a class="header" href="#install-ros2">Install ROS2</a></h2>
 <h3 id="setup-sources"><a class="header" href="#setup-sources">Setup Sources</a></h3>
 <p>You will need to add the ROS 2 apt repository to your system.
@@ -220,6 +197,9 @@ cargo install --path .
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
 
                         <div style="clear: both"></div>
@@ -228,6 +208,9 @@ cargo install --path .
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
             </nav>
 
@@ -251,11 +234,6 @@ cargo install --path .
 
         <!-- Custom JS scripts -->
 
-        <script>
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
 
     </body>
 </html>

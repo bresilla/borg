@@ -2,16 +2,17 @@
 
 
 
-<img align="right" width="32%" src="./misc/borg_3.png">
+<img align="right" width="32%" src="./misc/roc_2.png">
 
 wannabe ros2 command replacer
 ===
+#### robot operations command - roc
 
-[SUPER EARLY STATE] at the moment it calls ros2 commands externally, but the goal is to have a single binary that can be used to replace the ros2 command line tool. 
+[SUPER EARLY STAGE] at the moment it calls ros2 commands externally, but the goal is to have a single binary that can be used to replace the ros2 command line tool. 
 
 ## Usage
 ```
-borg <COMMAND> [SUBCOMMAND] [OPTIONS] [ARGS]
+roc <COMMAND> [SUBCOMMAND] [OPTIONS] [ARGS]
 ```
 <hr>
 
@@ -20,7 +21,7 @@ borg <COMMAND> [SUBCOMMAND] [OPTIONS] [ARGS]
 ## Installation
 
 ```bash
-cargo install borg_ros
+cargo install rocc
 ```
 
 
@@ -37,7 +38,7 @@ cargo install borg_ros
 ## Commands
 
 ```
-Usage:  borg <COMMAND>
+Usage:  roc <COMMAND>
 
 Monotor Commands:
   action      [a]    Various action subcommands

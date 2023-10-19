@@ -1,6 +1,22 @@
+pub mod about;
+pub mod action;
+pub mod topic;
+pub mod service;
+pub mod param;
+pub mod node;
+pub mod interface;
+pub mod frame;
+
+pub mod run;
+pub mod launch;
+pub mod work;
+
+pub mod bag;
+pub mod daemon;
+pub mod middleware;
+
 use clap::{Command, builder::styling, arg};
 use colored::Colorize;
-use crate::cli::*;
 
 pub fn letter_str(letter: &str) -> String {
     let mut wrapped = "[".bright_green().to_string();
@@ -34,27 +50,12 @@ pub fn cli(logo: bool) -> Command {
       ▟█████▙ ".bright_blue().to_string().as_str() + "   ▟█████▙ ".bright_blue().to_string().as_str() + "   ▟█████▙   ".bright_green().to_string().as_str() + "   
       ▜█████▛ ".bright_blue().to_string().as_str() + "   ▜█████▛ ".bright_blue().to_string().as_str() + "   ▜█████▛   ".bright_green().to_string().as_str() + "   
         ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀   ".bright_blue().to_string().as_str() + "     ▀▀▀     ".bright_green().to_string().as_str() + "\n";
-    
-    let _logo_2: String = " 
-▓████████████████████▓▒░      ░░▒▓███████████████▓▒░░   ░████████████████████▓▓▒░░      ░░▒▓███████████████▓▒░      
-▓████████████████████████▒   ░███████████████████████░  ░█████████████████████████░   ░▒██████████████████████▓░    
-▓████▒░░░░░░░░░░░░░░▓█████▒ ░██████▓▒▒▒▒▒▒▒▒▒▒▒▓██████░ ░█████▓▒▒▒▒▒▒▒▒▒▒▒▒▒▓██████░  ░██████▓▒▒▒▒▒▒▒▒▒▒▓██████▒░   
-▓████░              ░█████▒ ▒█████░             ░█████▒ ░█████░               ▓████▓░ ▓████▒░             ░▒▒▒▒▒░   
-▓████▒            ░░█████▒  ▒████▓              ░█████▒ ░█████░               ▒████▓░ ▓████▒░                       
-▓███████████████████████░   ▒████▓               █████▒ ░█████░░░░░░░░░░░░░░░▒█████▒  █████▒░       ░███████████░   
-▓███████████████████████░   ▒████▓               █████▒ ░█████████████████████████▓░  █████▒░       ░███████████░   
-▓████▒            ░░█████▒  ▒████▓              ░█████▒ ░█████████████████████████▓░  ▓████▒░       ░░░░░░▒█████░   
-▓████░              ░█████▒ ▒█████░             ░█████▒ ░█████░░░░░░░░░░░░░░░░▓████▓░ ▓████▒░             ░████▓░   
-▓████▒░░░░░░░░░░░░░░▓█████▒ ░██████▓▒▒▒░░░░░░▒▒▓██████░ ░█████░               ▒████▓░ ░██████▓▒▒▒░░░░░▒▒▒▓█████▒░   
-▓████████████████████████▒   ░███████████████████████░  ░█████░               ▒████▓░ ░▒██████████████████████▓░    
-▓████████████████████▓▒░      ░▒▓█████████████████▓▒░   ░█████░               ▒████▓░   ░▒▓█████████████████▓░░   
-    ".to_string();
 
     let logo_str: String = if logo {_logo_1 } else { String::new() };
 
     let help_str: String = " ".to_string().to_owned()+"
-Usage:".bright_blue().bold().to_string().as_str()+"  borg".bright_green().bold().to_string().as_str()+" <COMMAND>".green().to_string().as_str()+"
-      ".bright_blue().bold().to_string().as_str()+"  borg".bright_green().bold().to_string().as_str()+" <C>".green().to_string().as_str()+"
+Usage:".bright_blue().bold().to_string().as_str()+"  roc".bright_green().bold().to_string().as_str()+" <COMMAND>".green().to_string().as_str()+"
+      ".bright_blue().bold().to_string().as_str()+"  roc".bright_green().bold().to_string().as_str()+" <C>".green().to_string().as_str()+"
 
 Utilities Commands:".bright_blue().bold().to_string().as_str()+"
   "+ &command_str("action") + "      "+&letter_str("a")+ &descriptin_str("Various action subcommands") + "
@@ -82,7 +83,7 @@ Communication Commands:".bright_blue().bold().to_string().as_str()+"
         .error(styling::AnsiColor::Red.on_default() | styling::Effects::BOLD)
         .placeholder(styling::AnsiColor::Green.on_default());
 
-    Command::new("borg")
+    Command::new("roc")
         .styles(styles)
         .about(&ABOUT_STR) 
         .author("bresilla <trim.bresilla@gmail.com>")

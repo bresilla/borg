@@ -3,6 +3,7 @@ build:
 
 book:
     mdbook build book --dest-dir ../docs
+    git add -A && git commit -m "docs: building website/mdbook"
 
 do type:
     #!/usr/bin/env bash
@@ -14,7 +15,3 @@ do type:
     git tag -a $version -m "$version" -m "$changelog"
     git push --follow-tags --force --set-upstream origin develop
     gh release create $version --notes "$changelog"
-
-
-default:
-    echo 'Hello, world!'
