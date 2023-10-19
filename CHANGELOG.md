@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.30] - 2023-10-19
+
+### <!-- 7 -->⚙️ Miscellaneous Tasks
+
+- Add GitHub Actions workflow for creating releases
+
+### Dosc
+
+- Add image to "Why roc?" section
+
 ## [0.1.29] - 2023-10-18
 
 ### <!-- 0 -->⛰️  Features
