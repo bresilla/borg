@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.1.32] - 2023-10-19
+
+### <!-- 1 -->🐛 Bug Fixes
+
+- Github action for x-th time
+
+### <!-- 3 -->📚 Documentation
+
+- Building website/mdbook
+
+### <!-- 7 -->⚙️ Miscellaneous Tasks
+
+- Removed /docs folder
+- Gitub action mdbook automatic
+
 ## [0.1.30] - 2023-10-19
 
 ### <!-- 7 -->⚙️ Miscellaneous Tasks
