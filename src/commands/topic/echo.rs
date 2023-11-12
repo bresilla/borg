@@ -9,9 +9,6 @@ async fn run_command(matches: ArgMatches) -> Result<(), Box<dyn std::error::Erro
     let topic_name = matches.get_one::<String>("topic_name").unwrap();
     command.push_str(" ");
     command.push_str(&topic_name.to_string());
-    let message_type = matches.get_one::<String>("message_type").unwrap();
-    command.push_str(" ");
-    command.push_str(&message_type.to_string());
 
     if matches.get_one::<String>("spin_time") != None {
         let spin_time_value = matches.get_one::<String>("spin_time").unwrap();

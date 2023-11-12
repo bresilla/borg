@@ -18,12 +18,6 @@ pub fn cmd() -> Command {
                 .value_name("TOPIC_NAME")
             )
             .arg(
-                Arg::new("message_type")
-                .help("Type of the ROS message (e.g. 'std_msgs/msg/String')")
-                .required(true)
-                .value_name("MESSAGE_TYPE")
-            )
-            .arg(
                 Arg::new("spin_time")
                 .long("spin-time")
                 .aliases(&["spin_time", "spin"])
