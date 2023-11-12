@@ -1,6 +1,16 @@
 # Changelog
 
-## [0.1.32] - 2023-10-19
+## [0.1.32] - 2023-11-12
+
+### <!-- 1 -->🐛 Bug Fixes
+
+- `roc topic echo` fix
+
+### <!-- 7 -->⚙️ Miscellaneous Tasks
+
+- Svg_edits
+
+## [0.1.32] - 2023-11-12
 
 ### <!-- 1 -->🐛 Bug Fixes
 
